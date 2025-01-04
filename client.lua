@@ -1923,7 +1923,7 @@ bodypercent = {
 }
 
 RegisterNetEvent('ox_inventory:UpdatePlayerDamage', function(BodyParts)
-	local GetPlayerDamage = BodyParts or exports.BC_Wounding:GetPlayerDamage()
+	local GetPlayerDamage = BodyParts --or exports.BC_Wounding:GetPlayerDamage()
 	for k, v in pairs(GetPlayerDamage) do
 		if v.severity and not bodypercent[k].severity then
 			bodypercent[k].percent = bodypercent[k].percent + 40
