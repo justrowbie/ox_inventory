@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useNuiEvent from '../../hooks/useNuiEvent';
 import InventoryControl from './InventoryControl';
 import InventoryHotbar from './InventoryHotbar';
+import HotslotInventory from './HotslotInventory';
 import { useAppDispatch } from '../../store';
 import { refreshSlots, setAdditionalMetadata, setupInventory } from '../../store/inventory';
 import { useExitListener } from '../../hooks/useExitListener';
@@ -13,6 +14,7 @@ import { closeTooltip } from '../../store/tooltip';
 import InventoryContext from './InventoryContext';
 import { closeContextMenu } from '../../store/contextMenu';
 import Fade from '../utils/transitions/Fade';
+import BodyDamage from './BodyDamage';
 
 const Inventory: React.FC = () => {
   const [inventoryVisible, setInventoryVisible] = useState(false);
@@ -44,11 +46,15 @@ const Inventory: React.FC = () => {
     <>
       <Fade in={inventoryVisible}>
         <div className="inventory-wrapper">
-          <LeftInventory />
-          <InventoryControl />
-          <RightInventory />
-          <Tooltip />
-          <InventoryContext />
+          <div className="inventory-wrapper-left"><LeftInventory /></div>
+          <div className="inventory-wrapper-center">
+            <BodyDamage />
+            <HotslotInventory />
+            <InventoryControl />
+            <Tooltip />
+            <InventoryContext />
+          </div>
+          <div className="inventory-wrapper-right"><RightInventory /></div>
         </div>
       </Fade>
       <InventoryHotbar />

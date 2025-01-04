@@ -4,6 +4,7 @@ import { Items } from './store/items';
 import { Locale } from './store/locale';
 import { setImagePath } from './store/imagepath';
 import { setupInventory } from './store/inventory';
+import { setDamage } from './store/damage';
 import { Inventory } from './typings';
 import { useAppDispatch } from './store';
 import { debugData } from './utils/debugData';
@@ -44,7 +45,7 @@ debugData([
             name: 'water',
             weight: 100,
             count: 1,
-            metadata: { description: 'Generic item description' },
+            metadata: { description: 'Generic item description', durability: 25 },
           },
           { slot: 5, name: 'water', weight: 100, count: 1 },
           {
@@ -53,7 +54,7 @@ debugData([
             weight: 100,
             count: 1,
             metadata: {
-              label: 'Russian Cream',
+              label: 'Russian',
               imageurl: 'https://i.imgur.com/2xHhTTz.png',
             },
           },
@@ -70,7 +71,7 @@ debugData([
           {
             slot: 1,
             name: 'lockpick',
-            weight: 500,
+            weight: 5000,
             price: 300,
             ingredients: {
               iron: 5,
@@ -109,6 +110,10 @@ const App: React.FC = () => {
   useNuiEvent('closeInventory', () => {
     manager.dispatch({ type: 'dnd-core/END_DRAG' });
   });
+
+  useNuiEvent('DamageCall', (data: any) => {
+    dispatch(setDamage(data))
+  })
 
   return (
     <div className="app-wrapper">
