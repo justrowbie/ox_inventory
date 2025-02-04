@@ -1,13 +1,20 @@
-$mainColor: #101113;
+$themeColor: #f76707;
+$themeColorGlow: #ff922b;
+$themeColorTrans10: #f767071A;
+$themeColorTrans30: #f767074d;
+$themeColorTrans50: #f7670780;
+$themeColorTrans80: #f76707cc;
+$darkColor: #25262b;
+$darkColorTrans30: #25262b4d;
+$darkColorTrans50: #25262b80;
+$darkColorTrans80: #25262bcc;
+$lightColor: #f8f9fa;
+$lightColorTrans10: #f8f9fa1A;
+$lightColorTrans30: #f8f9fa4d;
+$lightColorTrans50: #f8f9fa80;
+$lightColorTrans80: #f8f9facc;
 $textColor: #f8f9fa;
 $mainFont: 'Inter';
-
-$secondaryColor: #101113;
-$secondaryColorHighlight: #f8f9fa;
-$secondaryColorLight: rgba(0, 0, 0, 0.5);
-$secondaryColorDark: rgba(12, 12, 12, 0.8);
-
-$backgroundColor: #10111300;
 
 $gridColsL: 5;
 $gridRowsL: 7;
@@ -76,14 +83,13 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .context-menu-item {
-  padding: 6px;
-  background-color: rgba(16, 17, 19, 0.6);
-  border-color: rgba(16, 17, 19, 0.2);
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 4px;
+  padding: 8px;
+  background-color: $darkColorTrans50;
+  border: 1px solid $darkColorTrans50;
+  border-radius: 6px;
   outline: none;
-  color: $textColor;
+  color: $themeColor;
+  text-shadow: $themeColorGlow 0px 0px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,9 +98,11 @@ input[type='number']::-webkit-outer-spin-button {
     transform: none;
   }
   &:hover {
-    background:rgba(16, 17, 19, 0.8);
-    border: calc(0.092592592vh * 1.4) solid rgba(16, 17, 19, 0.15);
-    border-radius: calc(0.092592592vh * 0);
+    background: $themeColorTrans80;
+    color: $textColor;
+    border: 1px solid $themeColorTrans80;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px 0px $themeColorGlow;
     cursor: pointer;
   }
 }
@@ -131,11 +139,13 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: radial-gradient(rgba(16, 17, 19, 0.4) 0%, rgba(16, 17, 19, 0.8) 100%);
+  background: radial-gradient($darkColorTrans30 0%, $themeColorTrans10 80%);
 }
 
 .inventory-wrapper-left {
-  background-color: $backgroundColor;
+  background-color: $darkColorTrans50;
+  border: 1px solid $darkColorTrans50;
+  box-shadow: 0px 0px 10px 0px $themeColorGlow;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -146,7 +156,9 @@ button:active {
 }
 
 .inventory-wrapper-right {
-  background-color: $backgroundColor;
+  background-color: $darkColorTrans50;
+  border: 1px solid $darkColorTrans50;
+  box-shadow: 0px 0px 10px 0px $themeColorGlow;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -182,21 +194,34 @@ button:active {
     font-size: 14px;
     text-align: center;
     outline: none;
-    color: #f8f9fa;
-    background: radial-gradient(circle, rgba(16, 17, 19, 0.5) 0%, rgba(16, 17, 19, 0.1) 80%);
-    border: calc(0.092592592vh * 1.4) solid rgba(16, 17, 19, 0.8);
+    color: $themeColor;
+    text-shadow: $themeColorGlow 0px 0px 10px;
+    background: radial-gradient(circle, $darkColorTrans30 0%, $darkColorTrans80 80%);
+    border: 1px solid $darkColorTrans30;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px $themeColorGlow;
+    &:hover {
+      color: $textColor;
+      background:$themeColorTrans80;
+      border: 1px solid $darkColorTrans30;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px $themeColorGlow;
+    }
     &:focus-within {
-      background:rgba(16, 17, 19, 0.8);
-      border: calc(0.092592592vh * 1.4) solid rgba(16, 17, 19, 0.8);
+      color: $textColor;
+      background:$themeColorTrans80;
+      border: 1px solid $darkColorTrans30;
     }
   }
 
   .inventory-control-button {
     font-size: 12px;
-    color: #f8f9fa;
-    background:rgba(16, 17, 19, 0.6);
-    border: calc(0.092592592vh * 1.4) solid rgba(16, 17, 19, 0.8);
-    border-radius: calc(0.092592592vh * 0);
+    color: $themeColor;
+    text-shadow: $themeColorGlow 0px 0px 10px;
+    background: radial-gradient(circle, $darkColorTrans30 0%, $darkColorTrans80 80%);
+    border: 1px solid $darkColorTrans30;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px $themeColorGlow;
     transition: 200ms;
     padding: 12px 25px;
     text-transform: uppercase;
@@ -204,31 +229,34 @@ button:active {
     width: 100%;
     font-weight: 500;
     &:hover {
-      box-shadow: 0.0rem 0.0rem 20px 5px #101113 inset !important;
-      border: calc(0.092592592vh * 1.4) solid rgba(16, 17, 19, 0.8);
-      border-radius: calc(0.092592592vh * 0);
+      color: $textColor;
+      background:$themeColorTrans80;
+      border: 1px solid $darkColorTrans30;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px $themeColorGlow;
     }
   }
 }
 
 .useful-controls-dialog {
-  background-color: $mainColor;
+  background-color: $darkColor;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: $textColor;
+  color: $themeColor;
+  text-shadow: $themeColorGlow 0px 0px 10px;
   width: 450px;
   display: flex;
   flex-direction: column;
   padding: 16px;
   border-radius: 4px;
   gap: 16px;
-  border-bottom: 1px solid rgba(16, 17, 19, 0.5);
+  border-bottom: 1px solid $darkColorTrans30;
 }
 
 .useful-controls-dialog-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $darkColorTrans50;
 }
 
 .useful-controls-dialog-title {
@@ -247,13 +275,13 @@ button:active {
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  fill: $textColor;
-  border-bottom: 1px solid rgba(16, 17, 19, 0.5);
+  fill: $themeColor;
+  border-bottom: 1px solid $darkColorTrans30;
   &:hover {
-    -webkit-box-shadow: inset 0px 0px 30px 5px rgba(16, 17, 19, 0.8);
-    -moz-box-shadow: inset 0px 0px 30px 5px rgba(16, 17, 19, 0.8);
-    box-shadow: inset 0px 0px 40px 10px rgba(16, 17, 19, 0.8);
-    border-radius: calc(0.092592592vh * 0);
+    -webkit-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
+    -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
+    box-shadow: inset 0px 0px 40px 10px $darkColorTrans80;
+    border-radius: 5px;
     cursor: pointer;
   }
 }
@@ -267,27 +295,27 @@ button:active {
 .divider {
   width: 100%;
   height: 1px;
-  background-color: rgba(248, 249, 250, 0.8);
+  background-color: $themeColorTrans80
 }
 
 .useful-controls-button {
   transition: 200ms !important;
   border: none;
-  color: rgb(16, 17, 19);
+  color: $darkColor;
   padding: 7px 8px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: rgb(173, 181, 189);
-  background-color: #101113;
-  border: 1px solid #101113;
-  border-bottom: 1px solid rgba(16, 17, 19, 0.5);
+  fill: $textColor;
+  background-color: $themeColor;
+  border: 1px solid $themeColor;
+  border-bottom: 1px solid $darkColorTrans50;
   &:hover {
-    -webkit-box-shadow: inset 0px 0px 30px 5px rgba(16, 17, 19, 0.8);
-    -moz-box-shadow: inset 0px 0px 30px 5px rgba(16, 17, 19, 0.8);
-    box-shadow: inset 0px 0px 40px 10px rgba(16, 17, 19, 0.8);
-    border-radius: calc(0.092592592vh * 0);
+    -webkit-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
+    -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
+    box-shadow: inset 0px 0px 40px 10px $darkColorTrans80;
+    border-radius: 5px;
     cursor: pointer;
   }
 }
@@ -297,7 +325,7 @@ button:active {
   right: 8px;
   top: 8px;
   border-radius: 2.5% !important;
-  color: grey !important;
+  color: $textColor !important;
 }
 
 // Dialog is used fro useful controls window
@@ -324,11 +352,13 @@ button:active {
     margin-bottom: 1vh;
     font-size: 14px;
     font-weight: 400;
+    color: $themeColor;
+    text-shadow: $themeColorGlow 0px 0px 10px;
   }
   // .player-name{
   //   font-size: 22px;
   //   font-weight: 400;
-  //   color: #f8f9fa;
+  //   color: $textColor;
   //   width: max-content;
   // }
 }
@@ -351,45 +381,44 @@ button:active {
   overflow-y: scroll;
 }
 
+@keyframes zoomOutAndShake {
+  0% {
+      transform: scale(0);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
 // inventory slots
 .inventory-slot {
-  background-color: rgba(15,15,15,0.2);
-  border: 1px solid rgba(15,15,15,0.2);
+  background-color: $lightColorTrans10;
+  border: 1px solid $darkColorTrans50;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
   background-size: 7vh;
   color: $textColor;
-  -webkit-box-shadow: inset 0px 0px 30px 5px rgba(15,15,15,0.5);
-  -moz-box-shadow: inset 0px 0px 30px 5px rgba(15,15,15,0.5);
-  box-shadow: inset 0px 0px 40px 10px rgba(15,15,15,0.5);
-  // animation: zoomOutAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  border-bottom: 1px solid rgba(16, 17, 19, 0.5);
+  -webkit-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
+  -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
+  box-shadow: inset 0px 0px 40px 10px $darkColorTrans80;
+  animation: zoomOutAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  border-bottom: 1px solid $darkColorTrans80;
   &:hover {
-    -webkit-box-shadow: inset 0px 0px 30px 5px rgba(16, 17, 19, 0.9);
-    -moz-box-shadow: inset 0px 0px 30px 5px rgba(16, 17, 19, 0.9);
-    box-shadow: inset 0px 0px 40px 10px rgba(16, 17, 19, 0.9);
-
+    -webkit-box-shadow: inset 0px 0px 30px 5px $themeColorTrans80;
+    -moz-box-shadow: inset 0px 0px 30px 5px $themeColorTrans80;
+    box-shadow: inset 0px 0px 40px 10px $themeColorTrans80;
   }
 }
 
-@keyframes zoomOutAndShake {
-    0% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
 .inventory-slot-label-box {
-  -webkit-box-shadow: inset 0px 0px 30px 5px #101113;
-  -moz-box-shadow: inset 0px 0px 30px 5px #101113;
-  box-shadow: inset 0px 0px 40px 10px #101113;
+  -webkit-box-shadow: inset 0px 0px 30px 5px $themeColorTrans80;
+  -moz-box-shadow: inset 0px 0px 30px 5px $themeColorTrans80;
+  box-shadow: inset 0px 0px 40px 10px $themeColorTrans80;
   position: relative;
-  color: #f8f9fa;
+  color: $textColor;
   text-align: center;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -406,14 +435,14 @@ button:active {
 }
 
 .inventory-slot-number {
-  background-color: rgba(16, 17, 19, 0.8);
-  box-shadow: 0 0 1vh rgba(16, 17, 19, 0.8);
-  border: 1px solid rgba(16, 17, 19, 0.8);
-  color: #f8f9fa;
+  background-color: $themeColor;
+  box-shadow: 0 0 2vh $themeColorGlow;
+  color: $textColor;
   height: 14px;
   width: 12px;
   padding: 2px;
   font-size: 12px;
+  font-weight: 500;
   text-align: center;
   font-family: $mainFont;
 }
@@ -443,7 +472,7 @@ button:active {
   display: flex;
   flex-direction: row;
   align-self: flex-end;
-  color: #f8f9fa;
+  color: $textColor;
   padding: 2px;
   padding-right:4px;
   gap: 2px;
@@ -480,9 +509,9 @@ button:active {
   flex-direction: column;
   min-width: 100px;
   max-width: 300px;
-  color:#f8f9fa;
+  color: $textColor;
   font-family: $mainFont;
-  background-color: rgba(16, 17, 19, 0.8);
+  background-color: $darkColorTrans80;
   p {
     font-size: 12px;
     font-weight: 400;
@@ -579,8 +608,9 @@ button:active {
 
 .item-notification-action-box {
   width: 100%;
-  color: $textColor;
-  //background-color: $mainColor;
+  color: $themeColor;
+  text-shadow: $themeColorGlow 0px 0px 10px;
+  //background-color: $darkColor;
   text-transform: uppercase;
   text-align: center;
   border-radius: 0.5rem;
@@ -599,18 +629,16 @@ button:active {
 }
 
 .durability-bar {
-  background-color: rgba(16, 17, 19, 0.5);
+  background-color: $darkColorTrans80;
   height: 3px;
-  border-radius: 0.25rem;
   overflow: hidden;
 }
 
 .weight-bar {
-  background-color: rgba(16, 17, 19, 0.5);
+  background-color: $darkColorTrans80;
   height: 1vh;
   border-radius: 0.25rem;
   overflow: hidden;
-  border-bottom: 1px solid rgba(16, 17, 19, 0.5);
 }
 
 .transition-fade-enter {

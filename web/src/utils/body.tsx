@@ -123,6 +123,7 @@ export default function Body(
 ) {
     const [hoverData, setHoverData] = React.useState<boolean>(false);
     const [bodypart, setBodypart] = React.useState<string>("");
+    const [bodylabel, setBodyLabel] = React.useState<string>("");
     const [bodydamagecal, setBodydamagecal] = React.useState<any>(detaileddata);
 
     const { refs, context, floatingStyles } = useFloating({
@@ -165,43 +166,46 @@ export default function Body(
                             ref={refs.setFloating}
                             style={{ ...floatingStyles, ...styles, color: 'white' }}
                         >
-                            
                             <div style={{
                                 width: '14vw',
                                 height: '8vw',
-                                backgroundColor: 'rgba(16, 17, 19, 0.9)',
+                                backgroundColor: '#25262bcc',
+                                boxShadow: '0px 0px 10px 0px #ff922b',
+                                borderRadius: '5px',
+                                color: '#f8f9fa',
+                                textShadow: '#ff922b 0px 0px 10px'
                             }}>
                                 <div style={{ fontSize: '12px', width: '14vw', margin: '0.5vw', position: 'absolute' }}>
-                                    <div style={{ fontWeight: 600, width: '12vw', textAlign: 'center', marginBottom: '6px' }}>{bodypart}</div>
-                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: 'rgba(44, 46, 51,0.5)', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                                    <div style={{ fontWeight: 600, width: '12vw', textAlign: 'center', marginBottom: '6px' }}>{bodylabel}</div>
+                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: '#f7670780', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                                         <div style={{ width: '50%', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
-                                            Peluru Bersarang
+                                            Bullet
                                         </div>
-                                        <div style={{ width: '50%', background: 'rgba(201, 42, 42, 0.6)', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+                                        <div style={{ width: '50%', background: '#f7670780', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             {bodydamagecal[bodypart]?.bullets || 0}
                                         </div>
                                     </div>
-                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: 'rgba(44, 46, 51,0.5)', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.3vw' }}>
+                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: '#f7670780', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.3vw' }}>
                                         <div style={{ width: '50%', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
-                                            Patah Tulang
+                                            Broken
                                         </div>
-                                        <div style={{ width: '50%', background: 'rgba(201, 42, 42, 0.6)', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+                                        <div style={{ width: '50%', background: '#f7670780', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             {bodydamagecal[bodypart]?.broken ? 'Yes' : 'No'}
                                         </div>
                                     </div>
-                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: 'rgba(44, 46, 51,0.5)', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.25vw' }}>
+                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: '#f7670780', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.25vw' }}>
                                         <div style={{ width: '50%', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
-                                            Tingkat Kerusakan
+                                            Severity
                                         </div>
-                                        <div style={{ width: '50%', background: 'rgba(201, 42, 42, 0.6)', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+                                        <div style={{ width: '50%', background: '#f7670780', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             {bodydamagecal[bodypart]?.severity ? 'High' : 'None'}
                                         </div>
                                     </div>
-                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: 'rgba(44, 46, 51,0.5)', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.25vw' }}>
+                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: '#f7670780', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.25vw' }}>
                                         <div style={{ width: '50%', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
-                                            Pendarahan
+                                            Bleeding
                                         </div>
-                                        <div style={{ width: '50%', background: 'rgba(201, 42, 42, 0.6)', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+                                        <div style={{ width: '50%', background: '#f7670780', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             {bodydamagecal[bodypart]?.bleeding ? 'Yes' : 'No'}
                                         </div>
                                     </div>
@@ -210,53 +214,53 @@ export default function Body(
                         </div>
                     </FloatingPortal>
                 )}
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('UPPER_BODY') }} onMouseLeave={() => { setHoverData(false) }} className='upperbody' style={{ width: '6.5vw', height: '4vw', position: 'absolute', marginLeft: '7vw', marginTop: '8vw', zIndex: 1, borderRadius: '1vw' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LOWER_BODY') }} onMouseLeave={() => { setHoverData(false) }} className='lowerbody' style={{ width: '6vw', height: '5vw', position: 'absolute', marginLeft: '7vw', marginTop: '13vw', zIndex: 1, borderRadius: '1vw', rotate: '2deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('HEAD') }} onMouseLeave={() => { setHoverData(false) }} className='head' style={{ width: '3.5vw', height: '4vw', position: 'absolute', marginLeft: '11.2vw', marginTop: '1vw', zIndex: 1, borderRadius: '1vw', rotate: '2deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('NECK') }} onMouseLeave={() => { setHoverData(false) }} className='neck' style={{ width: '3vw', height: '2vw', position: 'absolute', marginLeft: '6vw', marginTop: '5.5vw', zIndex: 1, borderRadius: '1vw', rotate: '0deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('RARM') }} onMouseLeave={() => { setHoverData(false) }} className='rarm' style={{ width: '1.5vw', height: '12vw', position: 'absolute', marginLeft: '14.5vw', marginTop: '6.5vw', zIndex: 1, borderRadius: '1vw', rotate: '-15deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('RHAND') }} onMouseLeave={() => { setHoverData(false) }} className='rhand' style={{ width: '2vw', height: '4vw', position: 'absolute', marginLeft: '16vw', marginTop: '18.5vw', zIndex: 1, borderRadius: '1vw', rotate: '-10deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LARM') }} onMouseLeave={() => { setHoverData(false) }} className='larm' style={{ width: '1.5vw', height: '12vw', position: 'absolute', marginLeft: '4.5vw', marginTop: '7.5vw', zIndex: 1, borderRadius: '1vw', rotate: '20deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LHAND') }} onMouseLeave={() => { setHoverData(false) }} className='lhand' style={{ width: '2vw', height: '3vw', position: 'absolute', marginLeft: '1vw', marginTop: '18.5vw', zIndex: 1, borderRadius: '1vw', rotate: '20deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LLEG') }} onMouseLeave={() => { setHoverData(false) }} className='lleg' style={{ width: '3vw', height: '14vw', position: 'absolute', marginLeft: '5.5vw', marginTop: '18.5vw', zIndex: 1, borderRadius: '1vw', rotate: '0deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LFOOT') }} onMouseLeave={() => { setHoverData(false) }} className='lfoot' style={{ width: '1.5vw', height: '5vw', position: 'absolute', marginLeft: '7.5vw', marginTop: '31vw', zIndex: 1, borderRadius: '1vw', rotate: '30deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('RLEG') }} onMouseLeave={() => { setHoverData(false) }} className='rleg' style={{ width: '3vw', height: '15.5vw', position: 'absolute', marginLeft: '10vw', marginTop: '18.5vw', zIndex: 1, borderRadius: '1vw', rotate: '-5deg' }} />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('RFOOT') }} onMouseLeave={() => { setHoverData(false) }} className='rfoot' style={{ width: '2vw', height: '3vw', position: 'absolute', marginLeft: '10.5vw', marginTop: '34vw', zIndex: 1, borderRadius: '1vw', rotate: '10deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('UPPER_BODY'); setBodyLabel('Upper Body') }} onMouseLeave={() => { setHoverData(false) }} className='upperbody' style={{ width: '6.5vw', height: '4vw', position: 'absolute', marginLeft: '7vw', marginTop: '8vw', zIndex: 1, borderRadius: '1vw' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LOWER_BODY'); setBodyLabel('Lower Body') }} onMouseLeave={() => { setHoverData(false) }} className='lowerbody' style={{ width: '6vw', height: '5vw', position: 'absolute', marginLeft: '7vw', marginTop: '13vw', zIndex: 1, borderRadius: '1vw', rotate: '2deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('HEAD'); setBodyLabel('Head') }} onMouseLeave={() => { setHoverData(false) }} className='head' style={{ width: '3.5vw', height: '4vw', position: 'absolute', marginLeft: '11.2vw', marginTop: '1vw', zIndex: 1, borderRadius: '1vw', rotate: '2deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('NECK'); setBodyLabel('Neck') }} onMouseLeave={() => { setHoverData(false) }} className='neck' style={{ width: '3vw', height: '2vw', position: 'absolute', marginLeft: '6vw', marginTop: '5.5vw', zIndex: 1, borderRadius: '1vw', rotate: '0deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('RARM'); setBodyLabel('Right Arm') }} onMouseLeave={() => { setHoverData(false) }} className='rarm' style={{ width: '1.5vw', height: '12vw', position: 'absolute', marginLeft: '14.5vw', marginTop: '6.5vw', zIndex: 1, borderRadius: '1vw', rotate: '-15deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('RHAND'); setBodyLabel('Right Hand') }} onMouseLeave={() => { setHoverData(false) }} className='rhand' style={{ width: '2vw', height: '4vw', position: 'absolute', marginLeft: '16vw', marginTop: '18.5vw', zIndex: 1, borderRadius: '1vw', rotate: '-10deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LARM'); setBodyLabel('Left Arm') }} onMouseLeave={() => { setHoverData(false) }} className='larm' style={{ width: '1.5vw', height: '12vw', position: 'absolute', marginLeft: '4.5vw', marginTop: '7.5vw', zIndex: 1, borderRadius: '1vw', rotate: '20deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LHAND'); setBodyLabel('Left Hand') }} onMouseLeave={() => { setHoverData(false) }} className='lhand' style={{ width: '2vw', height: '3vw', position: 'absolute', marginLeft: '1vw', marginTop: '18.5vw', zIndex: 1, borderRadius: '1vw', rotate: '20deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LLEG'); setBodyLabel('Left Leg') }} onMouseLeave={() => { setHoverData(false) }} className='lleg' style={{ width: '3vw', height: '14vw', position: 'absolute', marginLeft: '5.5vw', marginTop: '18.5vw', zIndex: 1, borderRadius: '1vw', rotate: '0deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LFOOT'); setBodyLabel('Left Foot') }} onMouseLeave={() => { setHoverData(false) }} className='lfoot' style={{ width: '1.5vw', height: '5vw', position: 'absolute', marginLeft: '7.5vw', marginTop: '31vw', zIndex: 1, borderRadius: '1vw', rotate: '30deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('RLEG'); setBodyLabel('Right Leg') }} onMouseLeave={() => { setHoverData(false) }} className='rleg' style={{ width: '3vw', height: '15.5vw', position: 'absolute', marginLeft: '10vw', marginTop: '18.5vw', zIndex: 1, borderRadius: '1vw', rotate: '-5deg' }} />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('RFOOT'); setBodyLabel('Right Foot') }} onMouseLeave={() => { setHoverData(false) }} className='rfoot' style={{ width: '2vw', height: '3vw', position: 'absolute', marginLeft: '10.5vw', marginTop: '34vw', zIndex: 1, borderRadius: '1vw', rotate: '10deg' }} />
                 <ArrowRight styles={{
                     width: '10vw',
                     height: '1.8vw',
                     position: 'absolute',
                     marginLeft: '11vw',
                     marginTop: '2.5vw',
-                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '15.5vw', marginTop: '1vw', position: 'absolute' }} label={'Kepala'} percent={100 - bodydamagecal["HEAD"]?.percent} />
+                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '15.5vw', marginTop: '1vw', position: 'absolute' }} label={'Head'} percent={100 - bodydamagecal["HEAD"]?.percent} />
                 <ArrowRight styles={{
                     width: '10vw',
                     height: '1.8vw',
                     position: 'absolute',
                     marginLeft: '14.5vw',
                     marginTop: '9vw',
-                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '19.5vw', marginTop: '7.5vw', position: 'absolute' }} label={'Tangan Kanan'} percent={100 - bodydamagecal["RARM"]?.percent} />
+                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '19.5vw', marginTop: '7.5vw', position: 'absolute' }} label={'Right Arm'} percent={100 - bodydamagecal["RARM"]?.percent} />
                 <ArrowRight styles={{
                     width: '10vw',
                     height: '1.8vw',
                     position: 'absolute',
                     marginLeft: '12vw',
                     marginTop: '26vw',
-                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '16.5vw', marginTop: '24.5vw', position: 'absolute' }} label={'Kaki Kanan'} percent={100 - bodydamagecal["RLEG"]?.percent} />
+                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '16.5vw', marginTop: '24.5vw', position: 'absolute' }} label={'Right Leg'} percent={100 - bodydamagecal["RLEG"]?.percent} />
                 <ArrowLeft styles={{
                     width: '10vw',
                     height: '1.8vw',
                     position: 'absolute',
                     marginLeft: '1.2vw',
                     marginTop: '26vw',
-                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '-0.5vw', marginTop: '24.5vw', position: 'absolute' }} label={'Kaki Kiri'} percent={100 - bodydamagecal["LLEG"]?.percent} />
+                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '-0.5vw', marginTop: '24.5vw', position: 'absolute' }} label={'Left Leg'} percent={100 - bodydamagecal["LLEG"]?.percent} />
                 <ArrowLeft styles={{
                     width: '10vw',
                     height: '1.8vw',
                     position: 'absolute',
                     marginLeft: '1.2vw',
                     marginTop: '9vw',
-                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '0.2vw', marginTop: '7.5vw', position: 'absolute' }} label={'Tangan Kiri'} percent={100 - bodydamagecal["LARM"]?.percent} />
+                }} durablitystyles={{ textAlign: 'center', width: '7vw', marginLeft: '0.2vw', marginTop: '7.5vw', position: 'absolute' }} label={'Left Arm'} percent={100 - bodydamagecal["LARM"]?.percent} />
                 <img className="upperbody" style={{ filter: `sepia(${bodydamagecal["UPPER_BODY"]?.percent}%) saturate(300%) brightness(100%) hue-rotate(299deg)` }} alt="upperbody" src={isEnvBrowser() ? iupperbody : getItemUrl('upperbody')} />
                 <img className="lowerbody" style={{ filter: `sepia(${bodydamagecal["LOWER_BODY"]?.percent}%) saturate(300%) brightness(100%) hue-rotate(299deg)` }} alt="lowerbody" src={isEnvBrowser() ? ilowerbody : getItemUrl('lowerbody')} />
                 <img className="lleg" style={{ filter: `sepia(${bodydamagecal["LLEG"]?.percent}%) saturate(300%) brightness(100%) hue-rotate(299deg)` }} alt="lleg" src={isEnvBrowser() ? illeg : getItemUrl('lleg')} />

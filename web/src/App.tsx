@@ -38,8 +38,8 @@ debugData([
             },
             count: 5,
           },
-          { slot: 2, name: 'powersaw', weight: 0, count: 1, metadata: { durability: 75 } },
-          { slot: 3, name: 'copper', weight: 100, count: 12, metadata: { type: 'Special' } },
+          { slot: 2, name: 'powersaw', weight: 0, count: 1, metadata: { durability: 85 } },
+          { slot: 3, name: 'copper', weight: 100, count: 12, metadata: { durability: 50, type: 'Special' } },
           {
             slot: 4,
             name: 'water',
