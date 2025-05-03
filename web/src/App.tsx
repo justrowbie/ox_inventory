@@ -22,13 +22,13 @@ debugData([
         type: 'player',
         slots: 50,
         label: 'Bob Smith',
-        weight: 3000,
+        weight: 1000,
         maxWeight: 5000,
         items: [
           {
             slot: 1,
             name: 'iron',
-            weight: 3000,
+            weight: 100,
             metadata: {
               description: `name: Svetozar Miletic  \n Gender: Male`,
               ammo: 3,
@@ -62,7 +62,7 @@ debugData([
       },
       rightInventory: {
         id: 'shop',
-        type: 'crafting',
+        type: 'shop',
         slots: 5000,
         label: 'Bob Smith',
         weight: 3000,

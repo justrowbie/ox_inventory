@@ -167,45 +167,42 @@ export default function Body(
                             style={{ ...floatingStyles, ...styles, color: 'white' }}
                         >
                             <div style={{
-                                width: '14vw',
+                                width: '11vw',
                                 height: '8vw',
                                 backgroundColor: '#25262bcc',
-                                boxShadow: '0px 0px 10px 0px #ff922b',
-                                borderRadius: '5px',
                                 color: '#f8f9fa',
-                                textShadow: '#ff922b 0px 0px 10px'
                             }}>
-                                <div style={{ fontSize: '12px', width: '14vw', margin: '0.5vw', position: 'absolute' }}>
-                                    <div style={{ fontWeight: 600, width: '12vw', textAlign: 'center', marginBottom: '6px' }}>{bodylabel}</div>
-                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: '#f7670780', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                                <div style={{ fontSize: '10px', width: '5vw', margin: '0.5vw', position: 'absolute' }}>
+                                    <div style={{ fontWeight: 600, width: '10vw', textAlign: 'center', marginBottom: '6px' }}>{bodylabel}</div>
+                                    <div style={{ width: '10vw', height: '1.2vw', backgroundColor: '#10111380', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                                         <div style={{ width: '50%', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             Bullet
                                         </div>
-                                        <div style={{ width: '50%', background: '#f7670780', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+                                        <div style={{ width: '50%', background: '#10111380', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             {bodydamagecal[bodypart]?.bullets || 0}
                                         </div>
                                     </div>
-                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: '#f7670780', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.3vw' }}>
+                                    <div style={{ width: '10vw', height: '1.2vw', backgroundColor: '#10111380', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.3vw' }}>
                                         <div style={{ width: '50%', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             Broken
                                         </div>
-                                        <div style={{ width: '50%', background: '#f7670780', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+                                        <div style={{ width: '50%', background: '#10111380', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             {bodydamagecal[bodypart]?.broken ? 'Yes' : 'No'}
                                         </div>
                                     </div>
-                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: '#f7670780', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.25vw' }}>
+                                    <div style={{ width: '10vw', height: '1.2vw', backgroundColor: '#10111380', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.25vw' }}>
                                         <div style={{ width: '50%', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             Severity
                                         </div>
-                                        <div style={{ width: '50%', background: '#f7670780', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+                                        <div style={{ width: '50%', background: '#10111380', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             {bodydamagecal[bodypart]?.severity ? 'High' : 'None'}
                                         </div>
                                     </div>
-                                    <div style={{ width: '13vw', height: '1.2vw', backgroundColor: '#f7670780', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.25vw' }}>
+                                    <div style={{ width: '10vw', height: '1.2vw', backgroundColor: '#10111380', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '0.25vw' }}>
                                         <div style={{ width: '50%', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             Bleeding
                                         </div>
-                                        <div style={{ width: '50%', background: '#f7670780', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+                                        <div style={{ width: '50%', background: '#10111380', display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
                                             {bodydamagecal[bodypart]?.bleeding ? 'Yes' : 'No'}
                                         </div>
                                     </div>
