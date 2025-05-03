@@ -1,13 +1,13 @@
-$themeColor: #f76707;
-$themeColorGlow: #ff922b;
-$themeColorTrans10: #f767071A;
-$themeColorTrans30: #f767074d;
-$themeColorTrans50: #f7670780;
-$themeColorTrans80: #f76707cc;
-$darkColor: #25262b;
-$darkColorTrans30: #25262b4d;
-$darkColorTrans50: #25262b80;
-$darkColorTrans80: #25262bcc;
+$themeColor: #101113;
+$themeColorGlow: #f8f9fa;
+$themeColorTrans10: #1011131A;
+$themeColorTrans30: #1011134d;
+$themeColorTrans50: #10111380;
+$themeColorTrans80: #101113cc;
+$darkColor: #101113;
+$darkColorTrans30: #1011134d;
+$darkColorTrans50: #10111380;
+$darkColorTrans80: #101113cc;
 $lightColor: #f8f9fa;
 $lightColorTrans10: #f8f9fa1A;
 $lightColorTrans30: #f8f9fa4d;
@@ -20,8 +20,8 @@ $gridColsL: 5;
 $gridRowsL: 7;
 $gridColsR: 5;
 $gridRowsR: 7;
-$gridSize: 10vh;
-$gridGap: 0.4rem;
+$gridSize: 8vh;
+$gridGap: 0.5rem;
 $containerSize: calc(#{$gridRowsL} * #{$gridSize + 0.22vh} + #{$gridRowsL} * #{$gridGap});
 
 body {
@@ -86,7 +86,6 @@ input[type='number']::-webkit-outer-spin-button {
   padding: 8px;
   background-color: $darkColorTrans50;
   border: 1px solid $darkColorTrans50;
-  border-radius: 6px;
   outline: none;
   color: $themeColor;
   text-shadow: $themeColorGlow 0px 0px 10px;
@@ -101,7 +100,6 @@ input[type='number']::-webkit-outer-spin-button {
     background: $themeColorTrans80;
     color: $textColor;
     border: 1px solid $themeColorTrans80;
-    border-radius: 6px;
     box-shadow: 0px 0px 10px 0px $themeColorGlow;
     cursor: pointer;
   }
@@ -129,7 +127,7 @@ button:active {
   left: 0;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 7vh;
+  background-size: 5vh;
   image-rendering: -webkit-optimize-contrast;
 }
 
@@ -139,13 +137,12 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: radial-gradient($darkColorTrans30 0%, $themeColorTrans10 80%);
+  background: radial-gradient($darkColorTrans30 0%, $themeColorTrans30 100%);
 }
 
 .inventory-wrapper-left {
   background-color: $darkColorTrans50;
   border: 1px solid $darkColorTrans50;
-  box-shadow: 0px 0px 10px 0px $themeColorGlow;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -158,7 +155,6 @@ button:active {
 .inventory-wrapper-right {
   background-color: $darkColorTrans50;
   border: 1px solid $darkColorTrans50;
-  box-shadow: 0px 0px 10px 0px $themeColorGlow;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -191,20 +187,17 @@ button:active {
     padding: 11px 8px;
     width: 6rem;
     font-family: $mainFont;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     outline: none;
-    color: $themeColor;
+    color: $textColor;
     text-shadow: $themeColorGlow 0px 0px 10px;
     background: radial-gradient(circle, $darkColorTrans30 0%, $darkColorTrans80 80%);
     border: 1px solid $darkColorTrans30;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px $themeColorGlow;
     &:hover {
       color: $textColor;
       background:$themeColorTrans80;
       border: 1px solid $darkColorTrans30;
-      border-radius: 5px;
       box-shadow: 0px 0px 10px 0px $themeColorGlow;
     }
     &:focus-within {
@@ -215,13 +208,11 @@ button:active {
   }
 
   .inventory-control-button {
-    font-size: 12px;
-    color: $themeColor;
+    font-size: 10px;
+    color: $textColor;
     text-shadow: $themeColorGlow 0px 0px 10px;
     background: radial-gradient(circle, $darkColorTrans30 0%, $darkColorTrans80 80%);
     border: 1px solid $darkColorTrans30;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px $themeColorGlow;
     transition: 200ms;
     padding: 12px 25px;
     text-transform: uppercase;
@@ -232,7 +223,6 @@ button:active {
       color: $textColor;
       background:$themeColorTrans80;
       border: 1px solid $darkColorTrans30;
-      border-radius: 5px;
       box-shadow: 0px 0px 10px 0px $themeColorGlow;
     }
   }
@@ -250,7 +240,6 @@ button:active {
   display: flex;
   flex-direction: column;
   padding: 16px;
-  border-radius: 4px;
   gap: 16px;
   border-bottom: 1px solid $darkColorTrans30;
 }
@@ -264,7 +253,7 @@ button:active {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .useful-controls-dialog-close {
@@ -274,14 +263,12 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
   fill: $themeColor;
   border-bottom: 1px solid $darkColorTrans30;
   &:hover {
     -webkit-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
     -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
     box-shadow: inset 0px 0px 40px 10px $darkColorTrans80;
-    border-radius: 5px;
     cursor: pointer;
   }
 }
@@ -295,7 +282,7 @@ button:active {
 .divider {
   width: 100%;
   height: 1px;
-  background-color: $themeColorTrans80
+  background-color: $textColor
 }
 
 .useful-controls-button {
@@ -315,7 +302,6 @@ button:active {
     -webkit-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
     -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
     box-shadow: inset 0px 0px 40px 10px $darkColorTrans80;
-    border-radius: 5px;
     cursor: pointer;
   }
 }
@@ -324,7 +310,6 @@ button:active {
   position: absolute !important;
   right: 8px;
   top: 8px;
-  border-radius: 2.5% !important;
   color: $textColor !important;
 }
 
@@ -336,7 +321,6 @@ button:active {
   flex-direction: column;
   gap: calc($gridGap * 2);
   // padding: 0.625rem;
-  // border-radius: 0.5rem;
 }
 
 .inventory-grid-header-wrapper {
@@ -350,9 +334,9 @@ button:active {
   width: 100%;
   p {
     margin-bottom: 1vh;
-    font-size: 14px;
-    font-weight: 400;
-    color: $themeColor;
+    font-size: 12px;
+    font-weight: 600;
+    color: $textColor;
     text-shadow: $themeColorGlow 0px 0px 10px;
   }
   // .player-name{
@@ -396,10 +380,9 @@ button:active {
   border: 1px solid $darkColorTrans50;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 0.5rem;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
-  background-size: 7vh;
+  background-size: 5vh;
   color: $textColor;
   -webkit-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
   -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
@@ -431,7 +414,7 @@ button:active {
   padding: 1px;
   font-weight: 300;
   font-family: $mainFont;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .inventory-slot-number {
@@ -441,7 +424,7 @@ button:active {
   height: 14px;
   width: 12px;
   padding: 2px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   text-align: center;
   font-family: $mainFont;
@@ -453,7 +436,7 @@ button:active {
   justify-content: space-between;
   height: 100%;
   p {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -488,7 +471,7 @@ button:active {
   align-items: center;
   padding-right: 3px;
   p {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
@@ -498,7 +481,7 @@ button:active {
   justify-content: flex-end;
   padding-right: 3px;
   p {
-    font-size: 14px;
+    font-size: 10px;
   }
 }
 
@@ -513,7 +496,7 @@ button:active {
   font-family: $mainFont;
   background-color: $darkColorTrans80;
   p {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 400;
     padding-bottom: 4px;
   }
@@ -540,7 +523,7 @@ button:active {
     padding-right: 3px;
   }
   p {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
@@ -608,15 +591,13 @@ button:active {
 
 .item-notification-action-box {
   width: 100%;
-  color: $themeColor;
+  color: $textColor;
   text-shadow: $themeColorGlow 0px 0px 10px;
-  //background-color: $darkColor;
   text-transform: uppercase;
   text-align: center;
-  border-radius: 0.5rem;
   font-family: $mainFont;
   p {
-    font-size: 11px;
+    font-size: 10px;
     padding: 2px;
     font-weight: 600;
   }
@@ -637,7 +618,6 @@ button:active {
 .weight-bar {
   background-color: $darkColorTrans80;
   height: 1vh;
-  border-radius: 0.25rem;
   overflow: hidden;
 }
 
