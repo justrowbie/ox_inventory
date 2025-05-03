@@ -1,9 +1,9 @@
-$themeColor: #101113;
-$themeColorGlow: #f8f9fa;
-$themeColorTrans10: #1011131A;
-$themeColorTrans30: #1011134d;
-$themeColorTrans50: #10111380;
-$themeColorTrans80: #101113cc;
+$themeColor: #94D82D;
+$themeColorGlow: #94D82D;
+$themeColorTrans10: #94D82D1A;
+$themeColorTrans30: #94D82D4d;
+$themeColorTrans50: #94D82D80;
+$themeColorTrans80: #94D82Dcc;
 $darkColor: #101113;
 $darkColorTrans30: #1011134d;
 $darkColorTrans50: #10111380;
@@ -142,7 +142,7 @@ button:active {
 
 .inventory-wrapper-left {
   background-color: $darkColorTrans50;
-  border: 1px solid $darkColorTrans50;
+  border: 1px solid $themeColorTrans50;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -154,7 +154,7 @@ button:active {
 
 .inventory-wrapper-right {
   background-color: $darkColorTrans50;
-  border: 1px solid $darkColorTrans50;
+  border: 1px solid $themeColorTrans50;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -193,7 +193,7 @@ button:active {
     color: $textColor;
     text-shadow: $themeColorGlow 0px 0px 10px;
     background: radial-gradient(circle, $darkColorTrans30 0%, $darkColorTrans80 80%);
-    border: 1px solid $darkColorTrans30;
+    border: 1px solid $themeColorTrans50;
     &:hover {
       color: $textColor;
       background:$themeColorTrans80;
@@ -212,7 +212,7 @@ button:active {
     color: $textColor;
     text-shadow: $themeColorGlow 0px 0px 10px;
     background: radial-gradient(circle, $darkColorTrans30 0%, $darkColorTrans80 80%);
-    border: 1px solid $darkColorTrans30;
+    border: 1px solid $themeColorTrans50;
     transition: 200ms;
     padding: 12px 25px;
     text-transform: uppercase;
@@ -222,7 +222,7 @@ button:active {
     &:hover {
       color: $textColor;
       background:$themeColorTrans80;
-      border: 1px solid $darkColorTrans30;
+      border: 1px solid $themeColorTrans50;
       box-shadow: 0px 0px 10px 0px $themeColorGlow;
     }
   }
@@ -241,7 +241,7 @@ button:active {
   flex-direction: column;
   padding: 16px;
   gap: 16px;
-  border-bottom: 1px solid $darkColorTrans30;
+  border-bottom: 1px solid $themeColorTrans50;
 }
 
 .useful-controls-dialog-overlay {
@@ -297,7 +297,7 @@ button:active {
   fill: $textColor;
   background-color: $themeColor;
   border: 1px solid $themeColor;
-  border-bottom: 1px solid $darkColorTrans50;
+  border-bottom: 1px solid $themeColorTrans50;
   &:hover {
     -webkit-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
     -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
@@ -377,7 +377,7 @@ button:active {
 // inventory slots
 .inventory-slot {
   background-color: $lightColorTrans10;
-  border: 1px solid $darkColorTrans50;
+  border: 1px solid $themeColorTrans30;
   background-repeat: no-repeat;
   background-position: center;
   image-rendering: -webkit-optimize-contrast;
@@ -388,7 +388,6 @@ button:active {
   -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
   box-shadow: inset 0px 0px 40px 10px $darkColorTrans80;
   animation: zoomOutAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  border-bottom: 1px solid $darkColorTrans80;
   &:hover {
     -webkit-box-shadow: inset 0px 0px 30px 5px $themeColorTrans80;
     -moz-box-shadow: inset 0px 0px 30px 5px $themeColorTrans80;
@@ -494,7 +493,7 @@ button:active {
   max-width: 300px;
   color: $textColor;
   font-family: $mainFont;
-  background-color: $darkColorTrans80;
+  background-color: $darkColorTrans50;
   p {
     font-size: 10px;
     font-weight: 400;
@@ -610,13 +609,13 @@ button:active {
 }
 
 .durability-bar {
-  background-color: $darkColorTrans80;
+  background-color: $darkColorTrans50;
   height: 3px;
   overflow: hidden;
 }
 
 .weight-bar {
-  background-color: $darkColorTrans80;
+  background-color: $darkColorTrans50;
   height: 1vh;
   overflow: hidden;
 }
