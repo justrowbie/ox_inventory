@@ -1,9 +1,9 @@
-$themeColor: #94D82D;
-$themeColorGlow: #94D82D;
-$themeColorTrans10: #94D82D1A;
-$themeColorTrans30: #94D82D4d;
-$themeColorTrans50: #94D82D80;
-$themeColorTrans80: #94D82Dcc;
+$themeColor: #FF922B;
+$themeColorGlow: #FF922B;
+$themeColorTrans10: #FF922B1A;
+$themeColorTrans30: #FF922B4d;
+$themeColorTrans50: #FF922B80;
+$themeColorTrans80: #FF922Bcc;
 $darkColor: #101113;
 $darkColorTrans30: #1011134d;
 $darkColorTrans50: #10111380;
@@ -387,7 +387,7 @@ button:active {
   -webkit-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
   -moz-box-shadow: inset 0px 0px 30px 5px $darkColorTrans80;
   box-shadow: inset 0px 0px 40px 10px $darkColorTrans80;
-  animation: zoomOutAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  // animation: zoomOutAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   &:hover {
     -webkit-box-shadow: inset 0px 0px 30px 5px $themeColorTrans80;
     -moz-box-shadow: inset 0px 0px 30px 5px $themeColorTrans80;

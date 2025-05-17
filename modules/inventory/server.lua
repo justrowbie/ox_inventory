@@ -1083,6 +1083,35 @@ end
 
 exports('SetMaxWeight', Inventory.SetMaxWeight)
 
+-- nothing stacking durability
+local function matchesExcludingDurability(meta1, meta2)
+	local ostime = os.time()
+    local durability1 = meta1.durability or 0
+    local durability2 = meta2.durability or 0
+    local degrade1 = meta1.degrade or 0
+    local degrade2 = meta2.degrade or 0
+	local diffDurability = math.abs((durability2 - ostime) - (durability1 - ostime))
+	local diffDegrade = math.abs(((degrade1 + degrade2) / 2) * 60)
+	local diffPercentage = math.abs((diffDurability / diffDegrade) * 100)
+    -- Check that durabilities are within 10% of each other
+    if diffPercentage > 30 then
+        return false
+    end
+
+    for k, v in pairs(meta1) do
+        if k ~= "durability" and (not meta2[k] or meta2[k] ~= v) then
+            return false
+        end
+    end
+    for k, v in pairs(meta2) do
+        if k ~= "durability" and (not meta1[k] or meta1[k] ~= v) then
+            return false
+        end
+    end
+
+    return true
+end
+
 ---@param inv inventory
 ---@param item table | string
 ---@param count number
@@ -1108,7 +1137,9 @@ function Inventory.AddItem(inv, item, count, metadata, slot, cb)
 		local slotData = inv.items[slot]
 		slotMetadata, slotCount = Items.Metadata(inv.id, item, metadata and table.clone(metadata) or {}, count)
 
-		if not slotData or (item.stack and slotData.name == item.name and table.matches(slotData.metadata, slotMetadata)) then
+		-- if not slotData or (item.stack and slotData.name == item.name and table.matches(slotData.metadata, slotMetadata)) then
+		-- nothing stacking durability
+		if not slotData or (item.stack and slotData.name == item.name and matchesExcludingDurability(slotData.metadata, slotMetadata)) then
 			toSlot = slot
 		end
 	end
@@ -1120,7 +1151,9 @@ function Inventory.AddItem(inv, item, count, metadata, slot, cb)
 		for i = 1, inv.slots do
 			local slotData = items[i]
 
-			if item.stack and slotData ~= nil and slotData.name == item.name and table.matches(slotData.metadata, slotMetadata) then
+			-- if item.stack and slotData ~= nil and slotData.name == item.name and table.matches(slotData.metadata, slotMetadata) then
+			-- nothing stacking durability
+			if item.stack and slotData ~= nil and slotData.name == item.name and matchesExcludingDurability(slotData.metadata, slotMetadata) then
 				toSlot = i
 				break
 			elseif not item.stack and not slotData then
@@ -1720,8 +1753,10 @@ lib.callback.register('ox_inventory:swapItems', function(source, data)
 				toType = toInventory.type,
 				count = data.count,
 			}
-
-			if toData and ((toData.name ~= fromData.name) or not toData.stack or (not table.matches(toData.metadata, fromData.metadata))) then
+			
+			-- if toData and ((toData.name ~= fromData.name) or not toData.stack or (not table.matches(toData.metadata, fromData.metadata))) then
+			-- nothing stacking durability
+			if toData and ((toData.name ~= fromData.name) or not toData.stack or (not matchesExcludingDurability(toData.metadata, fromData.metadata))) then
 				-- Swap items
 				local toWeight = not sameInventory and (toInventory.weight - toData.weight + fromData.weight) or 0
 				local fromWeight = not sameInventory and (fromInventory.weight + toData.weight - fromData.weight) or 0
@@ -1766,12 +1801,20 @@ lib.callback.register('ox_inventory:swapItems', function(source, data)
 					toData, fromData = Inventory.SwapSlots(fromInventory, toInventory, data.fromSlot, data.toSlot)
 				end
 
-			elseif toData and toData.name == fromData.name and table.matches(toData.metadata, fromData.metadata) then
+			-- elseif toData and toData.name == fromData.name and table.matches(toData.metadata, fromData.metadata) then
+			-- nothing stacking durability
+			elseif toData and toData.name == fromData.name and matchesExcludingDurability(toData.metadata, fromData.metadata) then
 				-- Stack items
 				toData.count += data.count
 				fromData.count -= data.count
 				local toSlotWeight = Inventory.SlotWeight(Items(toData.name), toData)
 				local totalWeight = toInventory.weight - toData.weight + toSlotWeight
+
+				-- nothing stacking durability
+				-- Set the durability to the lower of the two
+				if toData.metadata.durability and fromData.metadata.durability then
+					toData.metadata.durability = math.min(toData.metadata.durability, fromData.metadata.durability)
+				end
 
 				if fromInventory.type == 'container' or sameInventory or totalWeight <= toInventory.maxWeight then
 					hookPayload.action = 'stack'
