@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useNuiEvent from '../../hooks/useNuiEvent';
-import InventoryControl from './InventoryControl';
 import InventoryHotbar from './InventoryHotbar';
-import HotslotInventory from './HotslotInventory';
 import { useAppDispatch } from '../../store';
 import { refreshSlots, setAdditionalMetadata, setupInventory } from '../../store/inventory';
 import { useExitListener } from '../../hooks/useExitListener';
@@ -14,7 +12,9 @@ import { closeTooltip } from '../../store/tooltip';
 import InventoryContext from './InventoryContext';
 import { closeContextMenu } from '../../store/contextMenu';
 import Fade from '../utils/transitions/Fade';
+import DevItemNotifier from '../utils/ItemNotifications';
 import BodyDamage from './BodyDamage';
+import { useInventoryView } from './InventoryViewContext';
 
 const Inventory: React.FC = () => {
   const [inventoryVisible, setInventoryVisible] = useState(false);
@@ -42,19 +42,18 @@ const Inventory: React.FC = () => {
     dispatch(setAdditionalMetadata(data));
   });
 
+  const { showRightInventory, showBodyDamage } = useInventoryView();
+
   return (
     <>
       <Fade in={inventoryVisible}>
         <div className="inventory-wrapper">
+          {/* <DevItemNotifier /> */}
           <div className="inventory-wrapper-left"><LeftInventory /></div>
-          <div className="inventory-wrapper-center">
-            <BodyDamage />
-            <HotslotInventory />
-            <InventoryControl />
-            <Tooltip />
-            <InventoryContext />
-          </div>
-          <div className="inventory-wrapper-right"><RightInventory /></div>
+          {showBodyDamage && (<div className="inventory-wrapper-body"><BodyDamage /></div>)}
+          {showRightInventory && (<div className="inventory-wrapper-right"><RightInventory /></div>)}
+          <Tooltip />
+          <InventoryContext />
         </div>
       </Fade>
       <InventoryHotbar />

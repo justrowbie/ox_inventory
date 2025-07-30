@@ -4,6 +4,8 @@ import { store } from '../store';
 import { Items } from '../store/items';
 import { imagepath } from '../store/imagepath';
 import { fetchNui } from '../utils/fetchNui';
+import { isEnvBrowser } from '../utils/misc';
+import '../index.scss';
 
 export const canPurchaseItem = (item: Slot, inventory: { type: Inventory['type']; groups: Inventory['groups'] }) => {
   if (inventory.type !== 'shop' || !isSlotWithItem(item)) return true;
@@ -160,3 +162,46 @@ export const getItemUrl = (item: string | SlotWithItem) => {
 
   return itemData.image;
 };
+
+export function getAssetUrl(assetName: string) {
+  if (isEnvBrowser()) {
+      return `../../../extend/${assetName}.png`;
+  }
+  return `nui://ox_inventory/web/extend/${assetName}.png`;
+}
+
+export function getAssetUrlGif(assetName: string) {
+  if (isEnvBrowser()) {
+      return `../../../extend/${assetName}.gif`;
+  }
+  return `nui://ox_inventory/web/extend/${assetName}.gif`;
+}
+
+function hexToRgb(hex: string): [number, number, number] | null {
+  // Remove # if present
+  hex = hex.trim().replace(/^#/, '');
+
+  // Expand short form to full form (e.g., "abc" -> "aabbcc")
+  if (hex.length === 3) {
+    hex = hex.split('').map(c => c + c).join('');
+  }
+
+  if (hex.length !== 6) return null;
+
+  const bigint = parseInt(hex, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+
+  return [r, g, b];
+}
+
+export function getCssProp(color: string) {
+  const colorStr = getComputedStyle(document.documentElement)
+  .getPropertyValue(color)
+  .trim();
+
+  const result = hexToRgb(colorStr)
+
+  return result;
+}

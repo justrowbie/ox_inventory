@@ -4,7 +4,6 @@ import { Items } from './store/items';
 import { Locale } from './store/locale';
 import { setImagePath } from './store/imagepath';
 import { setupInventory } from './store/inventory';
-import { setDamage } from './store/damage';
 import { Inventory } from './typings';
 import { useAppDispatch } from './store';
 import { debugData } from './utils/debugData';
@@ -12,74 +11,116 @@ import DragPreview from './components/utils/DragPreview';
 import { fetchNui } from './utils/fetchNui';
 import { useDragDropManager } from 'react-dnd';
 import KeyPress from './components/utils/KeyPress';
+import { setDamage } from './store/damage';
+import { InventoryViewProvider } from './components/inventory/InventoryViewContext';
 
 debugData([
   {
     action: 'setupInventory',
     data: {
       leftInventory: {
-        id: 'test',
+        id: 'left',
         type: 'player',
         slots: 50,
         label: 'Bob Smith',
-        weight: 1000,
-        maxWeight: 5000,
+        weight: 3000,
+        maxWeight: 8000,
         items: [
           {
             slot: 1,
-            name: 'iron',
-            weight: 100,
-            metadata: {
-              description: `name: Svetozar Miletic  \n Gender: Male`,
-              ammo: 3,
-              mustard: '60%',
-              ketchup: '30%',
-              mayo: '10%',
-            },
+            name: 'lockpick',
+            weight: 500,
             count: 5,
+            metadata: {
+              label: 'Lock Pick',
+              durability: 50,
+              type: 'Rare',
+            },
           },
-          { slot: 2, name: 'powersaw', weight: 0, count: 1, metadata: { durability: 85 } },
-          { slot: 3, name: 'copper', weight: 100, count: 12, metadata: { durability: 50, type: 'Special' } },
+          {
+            slot: 2,
+            name: 'phone',
+            weight: 800,
+            count: 1
+          },
+          {
+            slot: 3,
+            name: 'weapon_pistol',
+            weight: 1000,
+            count: 1,
+            metadata: {
+              label: 'Pistol',
+              ammo: 3,
+              durability: 30,
+              serial: '12345ABCDE',
+              component: 'at_flashlight',
+            },
+          },
           {
             slot: 4,
-            name: 'water',
+            name: 'stone',
             weight: 100,
-            count: 1,
-            metadata: { description: 'Generic item description', durability: 25 },
+            count: 100,
+            metadata: {
+              label: 'Batu',
+              description: 'Generic item description',
+              durability: 50,
+              type: 'Common',
+            },
           },
-          { slot: 5, name: 'water', weight: 100, count: 1 },
+          { 
+            slot: 5,
+            name: 'water_bottle',
+            weight: 100,
+            count: 5,
+            metadata: {
+              label: 'Air Botol',
+              durability: 80,
+            },
+          },
           {
             slot: 6,
-            name: 'backwoods',
+            name: 'tosti',
             weight: 100,
-            count: 1,
+            count: 3,
             metadata: {
-              label: 'Russian',
-              imageurl: 'https://i.imgur.com/2xHhTTz.png',
+              label: 'Roti Keju',
+              durability: 100,
+              type: 'Special',
             },
           },
         ],
       },
       rightInventory: {
-        id: 'shop',
-        type: 'shop',
+        id: 'right',
+        type: 'stash',
         slots: 5000,
-        label: 'Bob Smith',
+        label: 'Toko Nothing',
         weight: 3000,
         maxWeight: 5000,
         items: [
           {
             slot: 1,
             name: 'lockpick',
-            weight: 5000,
+            currency: 'water_bottle',
+            weight: 500,
+            count: 1,
             price: 300,
             ingredients: {
-              iron: 5,
-              copper: 12,
-              powersaw: 0.1,
+              water_bottle: 5,
+              tosti: 12,
             },
+          },
+          {
+            slot: 2,
+            name: 'tosti',
+            weight: 500,
+            price: 3000,
+            count: 1,
             metadata: {
-              description: 'Simple lockpick that breaks easily and can pick basic door locks',
+              label: 'Roti Keju',
+              durability: 100,
+              type: 'Special',
             },
           },
         ],
@@ -117,9 +158,11 @@ const App: React.FC = () => {
 
   return (
     <div className="app-wrapper">
-      <InventoryComponent />
-      <DragPreview />
-      <KeyPress />
+      <InventoryViewProvider>
+        <InventoryComponent />
+        <DragPreview />
+        <KeyPress />
+      </InventoryViewProvider>
     </div>
   );
 };

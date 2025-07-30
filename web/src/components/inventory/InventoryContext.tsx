@@ -38,7 +38,7 @@ interface GroupedButtons extends Array<Group> {}
 const InventoryContext: React.FC = () => {
   const contextMenu = useAppSelector((state) => state.contextMenu);
   const item = contextMenu.item;
-
+  
   const handleClick = (data: DataProps) => {
     if (!item) return;
 
@@ -96,22 +96,22 @@ const InventoryContext: React.FC = () => {
         <MenuItem onClick={() => handleClick({ action: 'give' })} label={Locale.ui_give || 'Give'} />
         <MenuItem onClick={() => handleClick({ action: 'drop' })} label={Locale.ui_drop || 'Drop'} />
         {item && item.metadata?.ammo > 0 && (
-          <MenuItem onClick={() => handleClick({ action: 'removeAmmo' })} label={Locale.ui_remove_ammo} />
+          <MenuItem onClick={() => handleClick({ action: 'removeAmmo' })} label={Locale.ui_remove_ammo || 'Unload ammo'} />
         )}
         {item && item.metadata?.serial && (
           <MenuItem
             onClick={() => handleClick({ action: 'copy', serial: item.metadata?.serial })}
-            label={Locale.ui_copy}
+            label={Locale.ui_copy || 'Copy serial number'}
           />
         )}
         {item && item.metadata?.components && item.metadata?.components.length > 0 && (
-          <Menu label={Locale.ui_removeattachments}>
+          <Menu label={Locale.ui_removeattachments || 'Remove attachments'}>
             {item &&
               item.metadata?.components.map((component: string, index: number) => (
                 <MenuItem
                   key={index}
                   onClick={() => handleClick({ action: 'remove', component, slot: item.slot })}
-                  label={Items[component]?.label || ''}
+                  label={Items[component]?.label || 'No label'}
                 />
               ))}
           </Menu>

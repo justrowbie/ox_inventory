@@ -38,6 +38,9 @@ const ItemNotification = React.forwardRef(
         ref={ref}
       >
         <div className="item-slot-wrapper">
+            {/* <div className="inventory-slot-label-box"> */}
+              {/* <div className="inventory-slot-label-text" style={{paddingTop: '6px'}}>{slotItem.metadata?.label || Items[slotItem.name]?.label}</div> */}
+            {/* </div> */}
           <div className="item-notification-action-box">
             <p>{props.item.text}</p>
           </div>
@@ -86,3 +89,32 @@ export const ItemNotificationsProvider = ({ children }: { children: React.ReactN
     </ItemNotificationsContext.Provider>
   );
 };
+
+const DevItemNotifier = () => {
+  const { add } = useItemNotifications();
+
+  if (process.env.NODE_ENV !== 'development') return null;
+  const items = ['water_bottle', 'tosti', 'lockpick'];
+
+  const triggerNotification = () => {
+    const randomName = items[Math.floor(Math.random() * items.length)];
+    add({
+      item: {
+        slot: Math.floor(Math.random() * 100),
+        name: randomName,
+        count: Math.random() * 10,
+        weight: Math.random() * 100,
+        metadata: { label: randomName },
+      },
+      text: 'Used'
+    });
+  };
+
+  return (
+    <button onClick={triggerNotification} style={{ position: 'fixed', bottom: 10, left: 10 }}>
+      Test Notification
+    </button>
+  );
+};
+
+export default DevItemNotifier;
