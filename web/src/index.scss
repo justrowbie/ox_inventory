@@ -1,11 +1,8 @@
 $textColor: #F8F9FA;
 $mainFont: Roboto;
 
-$themeColor: #FF922B;
-$themeColorDark: #FF922B;
-$themeColorLight: #FF922B;
+$themeColor: #22b8cf;
 $darkColor: #101113;
-$darkLightColor: #1A1B1E;
 $lightColor: #F8F9FA;
 $lightDarkColor: #5c5f66;
 
@@ -44,8 +41,6 @@ body {
 
 :root {
   --themeColor: #{$themeColor};
-  --themeColorDark: #{$themeColorDark};
-  --themeColorLight: #{$themeColorLight};
 }
 
 #root {
@@ -99,7 +94,6 @@ input[type='number']::-webkit-outer-spin-button {
   outline: none;
   display: flex;
   flex-direction: column;
-  // backdrop-filter: blur(8px);
   cursor: pointer;
 }
 
@@ -150,9 +144,8 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100%;
-  gap: 30vw;
+  gap: 10vw;
   background: linear-gradient(90deg, rgba($darkColor, 0.9) 0%, rgba($darkColor, 0.5) 50%, rgba($darkColor, 0.9) 100%);
-  // backdrop-filter: blur(8px);
 }
 
 .inventory-control {
@@ -278,7 +271,7 @@ button:active {
   border-radius: 5% !important;
   background-color: $themeColor !important;
   &:hover {
-    background-color: $themeColorDark !important;
+    background-color: $themeColor !important;
     cursor: pointer;
   }
 }
@@ -312,14 +305,12 @@ button:active {
   color: $textColor;
   background-color: rgba($lightColor, 0.1);
   border: 1px solid rgba($lightColor, 0.2); 
-  box-shadow: 0px 0px 10px 3px rgba($lightColor, 0.1) inset;
   z-index: 1;
   height: $gridSize;
   cursor: grab;
   &:hover {
     background-color: rgba($lightColor, 0.2);
     border: 1px solid rgba($lightColor, 0.3); 
-    box-shadow: 0px 0px 10px 3px rgba($lightColor, 0.2) inset;
   }
 }
 
@@ -333,14 +324,12 @@ button:active {
   color: $textColor;
   background-color: rgba($rareColor, 0.2);
   border: 1px solid rgba($rareColor, 0.2); 
-  box-shadow: 0px 0px 10px 3px rgba($rareColor, 0.1) inset;
   z-index: 1;
   height: $gridSize;
   cursor: grab;
   &:hover {
     background-color: rgba($rareColor, 0.4);
     border: 1px solid rgba($rareColor, 0.4); 
-    box-shadow: 0px 0px 10px 3px rgba($rareColor, 0.2) inset;
   }
 }
 
@@ -354,14 +343,12 @@ button:active {
   color: $textColor;
   background-color: rgba($specialColor, 0.2);
   border: 1px solid rgba($specialColor, 0.2); 
-  box-shadow: 0px 0px 10px 3px rgba($specialColor, 0.1) inset;
   z-index: 1;
   height: $gridSize;
   cursor: grab;
   &:hover {
     background-color: rgba($specialColor, 0.4);
     border: 1px solid rgba($specialColor, 0.4); 
-    box-shadow: 0px 0px 10px 3px rgba($specialColor, 0.2) inset;
   }
 }
 
@@ -458,7 +445,6 @@ button:active {
   border-radius: 2px;
   background-color: rgba($lightDarkColor, 0.9);
   border: 1px solid rgba($lightColor, 0.2); 
-  box-shadow: 0px 0px 10px 1px rgba($lightColor, 0.2);
   color: $textColor;
   font-size: 12px;
   position: relative;
@@ -641,7 +627,7 @@ button:active {
   width: $gridSize;
   height: $gridSize;
   background-color: rgba($lightDarkColor, 0.4);
-  box-shadow: 0px 0px 5px 2px rgba($lightColor, 0.4) inset;
+  border: 1px solid rgba($lightDarkColor, 0.4); 
   color: $textColor;
   z-index: 1;
 }
@@ -652,7 +638,6 @@ button:active {
   height: $gridSize;
   background-color: rgba($specialColor, 0.2);
   border: 1px solid rgba($specialColor, 0.2); 
-  box-shadow: 0px 0px 10px 3px rgba($specialColor, 0.1) inset;
   border-radius: 2px;
   color: $textColor;
   z-index: 1;
@@ -664,7 +649,6 @@ button:active {
   height: $gridSize;
   background-color: rgba($rareColor, 0.2);
   border: 1px solid rgba($rareColor, 0.2); 
-  box-shadow: 0px 0px 10px 3px rgba($rareColor, 0.1) inset;
   border-radius: 2px;
   color: $textColor;
   z-index: 1;
@@ -691,7 +675,6 @@ button:active {
   width: 100%;
   color: $textColor;
   background-color: rgba($themeColor, 0.6);
-  box-shadow: 0px 0px 10px 0px rgba($themeColor, 0.8);
   text-transform: uppercase;
   text-align: center;
   font-family: $mainFont;
@@ -708,10 +691,9 @@ button:active {
   width: $gridSize;
   color: $textColor;
   background-size: 7vh;
-  background-position-y: 20px;
+  background-position-y: 25px;
   background-color: rgba($lightDarkColor, 0.4);
-  box-shadow: 0px 0px 5px 2px rgba($lightColor, 0.4) inset;
-  border: none;
+  border: 1px solid rgba($lightDarkColor, 0.4); 
   // animation: zoomInAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
@@ -900,7 +882,6 @@ button:active {
 .inventory-wrapper-left {
   background-color: rgba($lightColor, 0.1);
   border: 1px solid rgba($lightColor, 0.2); 
-  box-shadow: 0px 0px 10px 3px rgba($lightColor, 0.1) inset;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -911,7 +892,6 @@ button:active {
 .inventory-wrapper-right {
   background-color: rgba($lightColor, 0.1);
   border: 1px solid rgba($lightColor, 0.2); 
-  box-shadow: 0px 0px 10px 3px rgba($lightColor, 0.1) inset;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -922,7 +902,6 @@ button:active {
 .inventory-wrapper-body {
   background-color: rgba($lightColor, 0.1);
   border: 1px solid rgba($lightColor, 0.2); 
-  box-shadow: 0px 0px 10px 3px rgba($lightColor, 0.1) inset;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -933,8 +912,8 @@ button:active {
 .body-container {
   width: 54vh;
   height: $containerSizeR;
-  margin-top: 2.3vh;
-  margin-bottom: 2.3vh;
+  margin-top: 2.2vh;
+  margin-bottom: 2.2vh;
   // animation: zoomInAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
@@ -963,7 +942,6 @@ button:active {
   padding: 6px;
   background-color: rgba($lightDarkColor, 0.9);
   border: 1px solid rgba($lightColor, 0.2); 
-  box-shadow: 0px 0px 10px 1px rgba($lightColor, 0.2);
   transform: perspective(1000px) rotateY(-20deg);
 }
 
