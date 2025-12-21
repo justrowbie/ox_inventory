@@ -1,10 +1,11 @@
-$textColor: #F8F9FA;
+$textColor: #f8f9fa;
+$iconColor: #343a40;
 $mainFont: Roboto;
 
-$themeColor: #22b8cf;
-$darkColor: #101113;
-$lightColor: #F8F9FA;
-$lightDarkColor: #5c5f66;
+$themeColor: #f8f9fa;
+$darkColor: #212529;
+$lightColor: #f8f9fa;
+$lightDarkColor: #495057;
 
 $specialColor: #AE3EC9;
 $rareColor: #F03E3E;
@@ -767,6 +768,7 @@ button:active {
   border-radius: 2px;
   background: rgba($themeColor, 0.8);
   box-shadow: 0px 0px 10px 1px rgba($themeColor, 0.5);
+  color: $iconColor;
 }
 
 .inventory-label-box {
@@ -800,6 +802,7 @@ button:active {
   background: rgba($themeColor, 0.8);
   box-shadow: 0px 0px 10px 1px rgba($themeColor, 0.5);
   margin-left: 0.5vw;
+  color: $iconColor;
 }
 
 .inventory-grid-header-bottom {
@@ -1072,7 +1075,7 @@ button:active {
     font-size: 10px;
     font-weight: 800;
     padding: 5px 7px;
-    color: $textColor;
+    color: $iconColor;
     background-color: rgba($themeColor, 0.5);
     border: 1px solid rgba($themeColor, 0.5); 
     box-shadow: 0px 0px 10px 1px rgba($themeColor, 0.5) inset;
