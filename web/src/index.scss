@@ -86,7 +86,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .context-menu-list {
   min-width: 150px;
-  background-color: rgba($lightDarkColor, 0.9);
+  background-color: rgba($lightColor, 0.8);
   border: 1px solid rgba($lightColor, 0.2); 
   box-shadow: 0px 0px 10px 1px rgba($lightColor, 0.3) inset;
   color: $textColor;
@@ -102,9 +102,9 @@ input[type='number']::-webkit-outer-spin-button {
   padding: 4px;
   background-color: transparent;
   outline: none;
-  border: 1px solid rgba($lightColor, 0.2);
+  border: 1px solid rgba($darkColor, 0.2);
   margin: 2px 0px 2px 0px;
-  color: $textColor;
+  color: $darkColor;
   display: flex;
   justify-content: space-between;
   justify-content: center;
@@ -115,9 +115,10 @@ input[type='number']::-webkit-outer-spin-button {
     transform: none;
   }
   &:hover {
-    background: rgba($themeColor, 0.5);
-    border: 1px solid rgba($themeColor, 0.5);
-    box-shadow: 0px 0px 10px 0px rgba($themeColor, 0.2);
+    color: rgba($lightColor, 0.9);
+    background: rgba($darkColor, 0.9);
+    border: 1px solid rgba($darkColor, 0.9);
+    box-shadow: 0px 0px 10px 0px rgba($darkColor, 0.2);
     cursor: pointer;
   }
 }
@@ -173,9 +174,10 @@ button:active {
     background: radial-gradient(circle, rgba($lightColor, 0.1) 0%, rgba($lightColor, 0.1) 80%);
     border: 1px solid rgba($lightColor, 0.1);
     &:hover {
-      background: rgba($themeColor, 0.5);
-      border: 1px solid rgba($themeColor, 0.5);
-      box-shadow: 0px 0px 10px 0px rgba($themeColor, 0.2);
+      color: $darkColor;
+      background: rgba($lightColor, 0.8);
+      border: 1px solid rgba($lightColor, 0.8);
+      box-shadow: 0px 0px 10px 0px rgba($lightColor, 0.2);
     }
   }
 
@@ -191,10 +193,10 @@ button:active {
     width: 100%;
     font-weight: 400;
     &:hover {
-      color: $textColor;
-      background: rgba($themeColor, 0.5);
-      border: 1px solid rgba($themeColor, 0.5);
-      box-shadow: 0px 0px 10px 0px rgba($themeColor, 0.2);
+      color: $darkColor;
+      background: rgba($lightColor, 0.8);
+      border: 1px solid rgba($lightColor, 0.8);
+      box-shadow: 0px 0px 10px 0px rgba($lightColor, 0.2);
     }
   }
 }
@@ -444,9 +446,9 @@ button:active {
   flex-shrink: 0;
   padding: 10px;
   border-radius: 2px;
-  background-color: rgba($lightDarkColor, 0.9);
+  background-color: rgba($lightColor, 0.8);
   border: 1px solid rgba($lightColor, 0.2); 
-  color: $textColor;
+  color: $darkColor;
   font-size: 12px;
   position: relative;
   z-index: 10;
@@ -469,7 +471,7 @@ button:active {
 }
 
 .tooltip-description {
-  color: rgba($textColor, 0.8);
+  color: rgba($darkColor, 0.6);
   text-shadow: 0px 1px 1px rgba($darkColor, 0.25);
   font-size: 12px;
   font-style: normal;
@@ -479,7 +481,7 @@ button:active {
 
 .tooltip-metadata-text {
   display: flex;
-  color: rgba($textColor, 0.6);
+  color: rgba($darkColor, 0.6);
   text-shadow: 0px 1px 1px rgba($darkColor, 0.25);
   font-size: 12px;
   font-style: normal;
@@ -488,7 +490,7 @@ button:active {
 }
 
 .tooltip-metadata-value {
-  color: rgba($textColor, 0.9);
+  color: rgba($darkColor, 0.9);
   padding-left: 2px;
   text-shadow: 0px 1px 1px rgba($darkColor, 0.25);
   font-size: 12px;
@@ -498,9 +500,9 @@ button:active {
 }
 
 .tooltip-type-special {
-  background-color: rgba($specialColor, 0.5);
+  background-color: rgba($specialColor, 0.6);
   border: 1px solid rgba($specialColor, 0.2);
-  box-shadow: 0px 0px 10px 1px rgba($specialColor, 0.5);
+  box-shadow: 0px 0px 10px 1px rgba($specialColor, 0.6);
   text-shadow: 0px 1px 1px rgba($darkColor, 0.25);
   color: $textColor;
   justify-content: center;
@@ -514,9 +516,9 @@ button:active {
 }
 
 .tooltip-type-rare {
-  background-color: rgba($rareColor, 0.5);
+  background-color: rgba($rareColor, 0.6);
   border: 1px solid rgba($rareColor, 0.2);
-  box-shadow: 0px 0px 10px 1px rgba($rareColor, 0.5);
+  box-shadow: 0px 0px 10px 1px rgba($rareColor, 0.6);
   text-shadow: 0px 1px 1px rgba($darkColor, 0.25);
   color: $textColor;
   justify-content: center;
@@ -530,7 +532,7 @@ button:active {
 }
 
 .tooltip-weight {
-  color: rgba($textColor, 0.6);
+  color: rgba($darkColor, 0.6);
   justify-content: center;
   align-content: center;
   text-shadow: 0px 1px 1px rgba($darkColor, 0.25);
@@ -541,7 +543,7 @@ button:active {
 }
 
 .tooltip-item-name {
-  color: $textColor;
+  color: rgba($darkColor, 0.8);
   justify-content: center;
   align-content: center;
   text-shadow: 0px 1px 1px rgba($darkColor, 0.25);
@@ -627,8 +629,8 @@ button:active {
   @extend .inventory-slot;
   width: $gridSize;
   height: $gridSize;
-  background-color: rgba($lightDarkColor, 0.4);
-  border: 1px solid rgba($lightDarkColor, 0.4); 
+  background-color: rgba($lightColor, 0.4);
+  border: 1px solid rgba($lightColor, 0.4); 
   color: $textColor;
   z-index: 1;
 }
@@ -637,8 +639,8 @@ button:active {
   @extend .inventory-slot;
   width: $gridSize;
   height: $gridSize;
-  background-color: rgba($specialColor, 0.2);
-  border: 1px solid rgba($specialColor, 0.2); 
+  background-color: rgba($specialColor, 0.4);
+  border: 1px solid rgba($specialColor, 0.4); 
   border-radius: 2px;
   color: $textColor;
   z-index: 1;
@@ -648,8 +650,8 @@ button:active {
   @extend .inventory-slot;
   width: $gridSize;
   height: $gridSize;
-  background-color: rgba($rareColor, 0.2);
-  border: 1px solid rgba($rareColor, 0.2); 
+  background-color: rgba($rareColor, 0.4);
+  border: 1px solid rgba($rareColor, 0.4); 
   border-radius: 2px;
   color: $textColor;
   z-index: 1;
@@ -675,7 +677,7 @@ button:active {
 .item-notification-action-box {
   width: 100%;
   color: $textColor;
-  background-color: rgba($themeColor, 0.6);
+  background-color: rgba($lightColor, 0.4);
   text-transform: uppercase;
   text-align: center;
   font-family: $mainFont;
@@ -693,8 +695,8 @@ button:active {
   color: $textColor;
   background-size: 7vh;
   background-position-y: 25px;
-  background-color: rgba($lightDarkColor, 0.4);
-  border: 1px solid rgba($lightDarkColor, 0.4); 
+  background-color: rgba($lightColor, 0.4);
+  border: 1px solid rgba($lightColor, 0.4); 
   // animation: zoomInAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
@@ -943,7 +945,7 @@ button:active {
   height: fit-content;
   font-size: 12px;
   padding: 6px;
-  background-color: rgba($lightDarkColor, 0.9);
+  background-color: rgba($lightColor, 0.8);
   border: 1px solid rgba($lightColor, 0.2); 
   transform: perspective(1000px) rotateY(-20deg);
 }
@@ -953,9 +955,11 @@ button:active {
   text-align: center;
   text-transform: uppercase;
   padding-bottom: 5px;
+  color: rgba($darkColor, 0.9);
 }
 
 .body-info-detail-box {
+  color: rgba($textColor, 0.9);
   width: 10vw;
   height: 1vw;
   display: flex;
@@ -966,7 +970,7 @@ button:active {
 
 .body-info-detail-name {
   width: 50%;
-  background-color: rgba($themeColor, 0.5);
+  background-color: rgba($darkColor, 0.9);
   display: flex;
   align-content: center;
   align-items: center;
@@ -975,7 +979,8 @@ button:active {
 
 .body-info-detail-value {
   width: 50%;
-  background-color: rgba($lightColor, 0.1);
+  color: rgba($darkColor, 0.9);
+  background-color: rgba($darkColor, 0.1);
   display: flex;
   align-content: center;
   align-items: center;

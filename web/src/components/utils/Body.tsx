@@ -169,7 +169,8 @@ export default function Body(
                 <FloatingPortal>
                     <div
                         ref={refs.setFloating}
-                        style={{ ...floatingStyles, ...styles, color: 'white' }}
+                        style={{ ...floatingStyles, ...styles}}
+                        className='body-header-tooltip'
                     >
                         <div className='body-info-box'>
                             <div className='body-info-header'>{bodylabel}</div>
@@ -304,18 +305,18 @@ export default function Body(
                 <div onMouseEnter={() => { setHoverData(true); setBodypart('LLEG'); setBodyLabel(`${Locale.leg_left || 'Left Leg'}`) }} style={{ top: for2k ? '15.5vw' : '17.3vw', right: for2k ? '11.3vw' : '12.7vw', width: for2k ? '2.6vw' : '2.9vw', height: for2k ? '11.1vw' : '12.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
                 <div onMouseEnter={() => { setHoverData(true); setBodypart('RFOOT'); setBodyLabel(`${Locale.foot_right || 'Right Foot'}`) }} style={{ top: for2k ? '26.7vw' : '29.9vw', left: for2k ? '10.5vw' : '11.9vw', width: for2k ? '3.4vw' : '3.8vw', height: for2k ? '3vw' : '3.3vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
                 <div onMouseEnter={() => { setHoverData(true); setBodypart('LFOOT'); setBodyLabel(`${Locale.foot_left || 'Left Foot'}`) }} style={{ top: for2k ? '26.7vw' : '29.9vw', right: for2k ? '10.5vw' : '11.9vw', width: for2k ? '3.4vw' : '3.8vw', height: for2k ? '3vw' : '3.3vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["HEAD"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_head" src={getAssetUrl('body_head')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["NECK"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_neck" src={getAssetUrl('body_neck')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["UPPER_BODY"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_upper" src={getAssetUrl('body_upper')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["LOWER_BODY"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_lower" src={getAssetUrl('body_lower')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["LLEG"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="leg_left" src={getAssetUrl('leg_left')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["RLEG"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="leg_right" src={getAssetUrl('leg_right')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["LFOOT"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt='foot_left' src={getAssetUrl('foot_left')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["RFOOT"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="foot_right" src={getAssetUrl('foot_right')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["LARM"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="arm_left" src={getAssetUrl('arm_left')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["RARM"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="arm_right" src={getAssetUrl('arm_right')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["LHAND"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="hand_left" src={getAssetUrl('hand_left')} />
-                <img className="body-container-img" style={{ opacity: 0.8, filter: `sepia(${bodydamagecal["RHAND"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="hand_right" src={getAssetUrl('hand_right')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["HEAD"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_head" src={getAssetUrl('body_head')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["NECK"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_neck" src={getAssetUrl('body_neck')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["UPPER_BODY"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_upper" src={getAssetUrl('body_upper')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["LOWER_BODY"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_lower" src={getAssetUrl('body_lower')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["LLEG"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="leg_left" src={getAssetUrl('leg_left')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["RLEG"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="leg_right" src={getAssetUrl('leg_right')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["LFOOT"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt='foot_left' src={getAssetUrl('foot_left')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["RFOOT"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="foot_right" src={getAssetUrl('foot_right')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["LARM"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="arm_left" src={getAssetUrl('arm_left')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["RARM"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="arm_right" src={getAssetUrl('arm_right')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["LHAND"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="hand_left" src={getAssetUrl('hand_left')} />
+                <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["RHAND"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="hand_right" src={getAssetUrl('hand_right')} />
             </div>
         </div>
     );
