@@ -629,8 +629,8 @@ button:active {
   @extend .inventory-slot;
   width: $gridSize;
   height: $gridSize;
-  background-color: rgba($lightColor, 0.4);
-  border: 1px solid rgba($lightColor, 0.4); 
+  background-color: rgba($darkColor, 0.2);
+  border: 1px solid rgba($darkColor, 0.2); 
   color: $textColor;
   z-index: 1;
 }
@@ -677,7 +677,7 @@ button:active {
 .item-notification-action-box {
   width: 100%;
   color: $textColor;
-  background-color: rgba($lightColor, 0.4);
+  background-color: rgba($darkColor, 0.8);
   text-transform: uppercase;
   text-align: center;
   font-family: $mainFont;
@@ -692,11 +692,11 @@ button:active {
   @extend .inventory-slot;
   height: $gridSize;
   width: $gridSize;
-  color: $textColor;
+  color: rgba($darkColor, 0.9);
   background-size: 7vh;
   background-position-y: 25px;
-  background-color: rgba($lightColor, 0.4);
-  border: 1px solid rgba($lightColor, 0.4); 
+  background-color: rgba($darkColor, 0.2);
+  border: 1px solid rgba($darkColor, 0.2); 
   // animation: zoomInAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
