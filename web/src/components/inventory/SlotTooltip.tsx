@@ -60,7 +60,7 @@ const SlotTooltip: React.ForwardRefRenderFunction<
               </div>
             ) : (
               <div className="tooltip-description">
-                No description found about Item
+                Tidak ada informasi mengenai barang ini
               </div>
             )}
           </div>

@@ -175,20 +175,20 @@ export default function Body(
                         <div className='body-info-box'>
                             <div className='body-info-header'>{bodylabel}</div>
                             <div className='body-info-detail-box'>
-                                <div className='body-info-detail-name'>{Locale.damage_bullet || 'Bullet'}</div>
+                                <div className='body-info-detail-name'>{Locale.damage_bullet || 'Peluru'}</div>
                                 <div className='body-info-detail-value'>{bodydamagecal[bodypart]?.bullets || 0}</div>
                             </div>
                             <div className='body-info-detail-box'>
-                                <div className='body-info-detail-name'>{Locale.damage_broken || 'Broken'}</div>
-                                <div className='body-info-detail-value'>{bodydamagecal[bodypart]?.broken ? 'Yes' : 'No'}</div>
+                                <div className='body-info-detail-name'>{Locale.damage_broken || 'Patah'}</div>
+                                <div className='body-info-detail-value'>{bodydamagecal[bodypart]?.broken ? 'Ya' : 'Tidak'}</div>
                             </div>
                             <div className='body-info-detail-box'>
-                                <div className='body-info-detail-name'>{Locale.damage_severity || 'Severity'}</div>
-                                <div className='body-info-detail-value'>{bodydamagecal[bodypart]?.severity ? 'High' : 'None'}</div>
+                                <div className='body-info-detail-name'>{Locale.damage_severity || 'Rusak'}</div>
+                                <div className='body-info-detail-value'>{bodydamagecal[bodypart]?.severity ? 'Ya' : 'Tidak'}</div>
                             </div>
                             <div className='body-info-detail-box'>
-                                <div className='body-info-detail-name'>{Locale.damage_bleeding || 'Bleeding'}</div>
-                                <div className='body-info-detail-value'>{bodydamagecal[bodypart]?.bleeding ? 'Yes' : 'No'}</div>
+                                <div className='body-info-detail-name'>{Locale.damage_bleeding || 'Pendarahan'}</div>
+                                <div className='body-info-detail-value'>{bodydamagecal[bodypart]?.bleeding ? 'Ya' : 'Tidak'}</div>
                             </div>
                         </div>
                     </div>
@@ -197,10 +197,10 @@ export default function Body(
             <div className="inventory-view-button">
                 <div className="inventory-view-wrapper">
                     <button className="inventory-view-button-active" onClick={() => { setShowRightInventory(false); setShowBodyDamage(true); }}>
-                        <div className="inventory-view-button-inner">Q</div>{Locale.button_body || 'Body Damage'}
+                        <div className="inventory-view-button-inner">Q</div>{Locale.button_body || 'Informasi Tubuh'}
                     </button>
                     <button className="inventory-view-button-inactive" onClick={() => { setShowRightInventory(true); setShowBodyDamage(false); }}>
-                        <div className="inventory-view-button-inner">E</div>{Locale.button_slot || 'Inventory Slot'}
+                        <div className="inventory-view-button-inner">E</div>{Locale.button_slot || 'Slot Inventaris'}
                     </button>
                 </div>
             </div>
@@ -209,13 +209,13 @@ export default function Body(
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '2vw' : '2vw', marginLeft: for2k ? '8.5vw' : '9.2vw'}} >
                         <div className='body-info-line-right' style={{ width: '2vw' }} />
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.body_head || 'Head'}</div>
+                            <div className='body-info-line-label'>{Locale.body_head || 'Kepala'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["HEAD"]?.percent}%` }}></div>
                         </div>
                     </div>
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '2vw' : '2.5vw', marginRight: for2k ? '8vw' : '8.5vw'}} >
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.body_neck || 'Neck'}</div>
+                            <div className='body-info-line-label'>{Locale.body_neck || 'Leher'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["NECK"]?.percent}%` }}></div>
                         </div>
                         <div className='body-info-line-left ' style={{ width: '2vw' }} />
@@ -223,13 +223,13 @@ export default function Body(
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '2vw' : '2.5vw', marginLeft: for2k ? '13vw' : '14.5vw' }} >
                         <div className='body-info-line-right' style={{ width: '4vw' }} />
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.body_upper || 'Upper Body'}</div>
+                            <div className='body-info-line-label'>{Locale.body_upper || 'Tubuh Atas'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["UPPER_BODY"]?.percent}%` }}></div>
                         </div>
                     </div>
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '2vw' : '2.5vw', marginRight: for2k ? '14.5vw' : '16vw' }} >
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.arm_right || 'Right Arm'}</div>
+                            <div className='body-info-line-label'>{Locale.arm_right || 'Lengan Kanan'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["RARM"]?.percent}%` }}></div>
                         </div>
                         <div className='body-info-line-left' style={{ width: '2vw' }} />
@@ -237,13 +237,13 @@ export default function Body(
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '1.5vw' : '2vw', marginLeft: for2k ? '15.5vw' : '17.2vw' }} >
                         <div className='body-info-line-right' style={{ width: '2vw' }} />
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.arm_left || 'Left Arm'}</div>
+                            <div className='body-info-line-label'>{Locale.arm_left || 'Lengan Kiri'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["LARM"]?.percent}%` }}></div>
                         </div>
                     </div>
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '2vw' : '2.5vw', marginRight: for2k ? '12.5vw' : '14.5vw' }} >
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.body_lower || 'Lower Body'}</div>
+                            <div className='body-info-line-label'>{Locale.body_lower || 'Tubuh Bawah'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["LOWER_BODY"]?.percent}%` }}></div>
                         </div>
                         <div className='body-info-line-left' style={{ width: '4vw' }} />
@@ -251,13 +251,13 @@ export default function Body(
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '2vw' : '2vw', marginLeft: for2k ? '18vw' : '20.6vw' }} >
                         <div className='body-info-line-right' style={{ width: '2vw' }} />
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.hand_left || 'Left Hand'}</div>
+                            <div className='body-info-line-label'>{Locale.hand_left || 'Tangan Kiri'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["LHAND"]?.percent}%` }}></div>
                         </div>
                     </div>
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '1vw' : '1vw', marginRight: for2k ? '18vw' : '20vw' }} >
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.hand_right || 'Right Hand'}</div>
+                            <div className='body-info-line-label'>{Locale.hand_right || 'Tangan Kanan'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["RHAND"]?.percent}%` }}></div>
                         </div>
                         <div className='body-info-line-left' style={{ width: '2vw' }} />
@@ -265,13 +265,13 @@ export default function Body(
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '2.5vw' : '3vw', marginLeft: for2k ? '11vw' : '12vw' }}>
                         <div className='body-info-line-right' style={{ width: '2vw' }} />
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.leg_left || 'Left Leg'}</div>
+                            <div className='body-info-line-label'>{Locale.leg_left || 'Paha Kiri'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["LLEG"]?.percent}%` }}></div>
                         </div>
                     </div>
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '3vw' : '3.5vw', marginRight: for2k ? '11vw' : '12.3vw' }}>
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.leg_right || 'Right Leg'}</div>
+                            <div className='body-info-line-label'>{Locale.leg_right || 'Paha Kanan'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["RLEG"]?.percent}%` }}></div>
                         </div>
                         <div className='body-info-line-left' style={{ width: '2vw' }} />
@@ -279,13 +279,13 @@ export default function Body(
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '4vw' : '4vw', marginLeft: for2k ? '10vw' : '11vw' }}>
                         <div className='body-info-line-right' style={{ width: '2vw' }} />
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.foot_left || 'Left Foot'}</div>
+                            <div className='body-info-line-label'>{Locale.foot_left || 'Kaki Kiri'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["LFOOT"]?.percent}%` }}></div>
                         </div>
                     </div>
                     <div className='body-info-line-box' style={{ marginTop: for2k ? '1vw' : '1vw', marginRight: for2k ? '10.5vw' : '12vw' }}>
                         <div className='body-info-line-bar'>
-                            <div className='body-info-line-label'>{Locale.foot_right || 'Right Foot'}</div>
+                            <div className='body-info-line-label'>{Locale.foot_right || 'Kaki Kanan'}</div>
                             <div className='body-info-line-fill' style={{ width: `${100 - bodydamagecal["RFOOT"]?.percent}%` }}></div>
                         </div>
                         <div className='body-info-line-left' style={{ width: '2vw' }} />
@@ -293,18 +293,18 @@ export default function Body(
                 </div>
             </div>
             <div className="body-container-img-wrapper">
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('HEAD'); setBodyLabel(`${Locale.body_head || 'Head'}`) }} style={{ top: for2k ? '.5vw' : '.5vw', width: for2k ? '4vw' : '4vw', height: for2k ? '3.3vw' : '3.7vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('NECK'); setBodyLabel(`${Locale.body_neck || 'Neck'}`) }} style={{ top: for2k ? '3.9vw' : '4.3vw', width: for2k ? '4vw' : '4vw', height: for2k ? '.9vw' : '1.1vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('UPPER_BODY'); setBodyLabel(`${Locale.body_upper || 'Upper Body'}`) }} style={{ top: for2k ? '4.9vw' : '5.5vw', width: for2k ? '5.3vw' : '5.9vw', height: for2k ? '5.9vw' : '6.4vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LOWER_BODY'); setBodyLabel(`${Locale.body_lower || 'Lower Body'}`) }} style={{ top: for2k ? '10.9vw' : '12vw', width: for2k ? '5.3vw' : '5.9vw', height: for2k ? '4.5vw' : '5.2vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('RARM'); setBodyLabel(`${Locale.arm_right || 'Right Arm'}`) }} style={{ top: for2k ? '4.9vw' : '5.5vw', left: for2k ? '8.2vw' : '9.6vw', width: for2k ? '3vw' : '3vw', height: for2k ? '9.4vw' : '10.4vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LARM'); setBodyLabel(`${Locale.arm_left || 'Left Arm'}`) }} style={{ top: for2k ? '4.9vw' : '5.5vw', right: for2k ? '8.2vw' : '9.6vw', width: for2k ? '3vw' : '3vw', height: for2k ? '9.4vw' : '10.4vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('RHAND'); setBodyLabel(`${Locale.hand_right || 'Right Hand'}`) }} style={{ top: for2k ? '14.4vw' : '16vw', left: for2k ? '7.2vw' : '8.3vw', width: for2k ? '4vw' : '4.3vw', height: for2k ? '3vw' : '3.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LHAND'); setBodyLabel(`${Locale.hand_left || 'Left Hand'}`) }} style={{ top: for2k ? '14.4vw' : '16vw', right: for2k ? '7.2vw' : '8.3vw', width: for2k ? '4vw' : '4.3vw', height: for2k ? '3vw' : '3.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('RLEG'); setBodyLabel(`${Locale.leg_right || 'Right Leg'}`) }} style={{ top: for2k ? '15.5vw' : '17.3vw', left: for2k ? '11.3vw' : '12.7vw', width: for2k ? '2.6vw' : '2.9vw', height: for2k ? '11.1vw' : '12.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LLEG'); setBodyLabel(`${Locale.leg_left || 'Left Leg'}`) }} style={{ top: for2k ? '15.5vw' : '17.3vw', right: for2k ? '11.3vw' : '12.7vw', width: for2k ? '2.6vw' : '2.9vw', height: for2k ? '11.1vw' : '12.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('RFOOT'); setBodyLabel(`${Locale.foot_right || 'Right Foot'}`) }} style={{ top: for2k ? '26.7vw' : '29.9vw', left: for2k ? '10.5vw' : '11.9vw', width: for2k ? '3.4vw' : '3.8vw', height: for2k ? '3vw' : '3.3vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
-                <div onMouseEnter={() => { setHoverData(true); setBodypart('LFOOT'); setBodyLabel(`${Locale.foot_left || 'Left Foot'}`) }} style={{ top: for2k ? '26.7vw' : '29.9vw', right: for2k ? '10.5vw' : '11.9vw', width: for2k ? '3.4vw' : '3.8vw', height: for2k ? '3vw' : '3.3vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('HEAD'); setBodyLabel(`${Locale.body_head || 'Kepala'}`) }} style={{ top: for2k ? '.5vw' : '.5vw', width: for2k ? '4vw' : '4vw', height: for2k ? '3.3vw' : '3.7vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('NECK'); setBodyLabel(`${Locale.body_neck || 'Leher'}`) }} style={{ top: for2k ? '3.9vw' : '4.3vw', width: for2k ? '4vw' : '4vw', height: for2k ? '.9vw' : '1.1vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('UPPER_BODY'); setBodyLabel(`${Locale.body_upper || 'Tubuh Atas'}`) }} style={{ top: for2k ? '4.9vw' : '5.5vw', width: for2k ? '5.3vw' : '5.9vw', height: for2k ? '5.9vw' : '6.4vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LOWER_BODY'); setBodyLabel(`${Locale.body_lower || 'Tubuh Bawah'}`) }} style={{ top: for2k ? '10.9vw' : '12vw', width: for2k ? '5.3vw' : '5.9vw', height: for2k ? '4.5vw' : '5.2vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('RARM'); setBodyLabel(`${Locale.arm_right || 'Lengan Kanan'}`) }} style={{ top: for2k ? '4.9vw' : '5.5vw', left: for2k ? '8.2vw' : '9.6vw', width: for2k ? '3vw' : '3vw', height: for2k ? '9.4vw' : '10.4vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LARM'); setBodyLabel(`${Locale.arm_left || 'Lengan Kiri'}`) }} style={{ top: for2k ? '4.9vw' : '5.5vw', right: for2k ? '8.2vw' : '9.6vw', width: for2k ? '3vw' : '3vw', height: for2k ? '9.4vw' : '10.4vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('RHAND'); setBodyLabel(`${Locale.hand_right || 'Tangan Kanan'}`) }} style={{ top: for2k ? '14.4vw' : '16vw', left: for2k ? '7.2vw' : '8.3vw', width: for2k ? '4vw' : '4.3vw', height: for2k ? '3vw' : '3.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LHAND'); setBodyLabel(`${Locale.hand_left || 'Tangan Kiri'}`) }} style={{ top: for2k ? '14.4vw' : '16vw', right: for2k ? '7.2vw' : '8.3vw', width: for2k ? '4vw' : '4.3vw', height: for2k ? '3vw' : '3.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('RLEG'); setBodyLabel(`${Locale.leg_right || 'Paha Kanan'}`) }} style={{ top: for2k ? '15.5vw' : '17.3vw', left: for2k ? '11.3vw' : '12.7vw', width: for2k ? '2.6vw' : '2.9vw', height: for2k ? '11.1vw' : '12.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LLEG'); setBodyLabel(`${Locale.leg_left || 'Paha Kiri'}`) }} style={{ top: for2k ? '15.5vw' : '17.3vw', right: for2k ? '11.3vw' : '12.7vw', width: for2k ? '2.6vw' : '2.9vw', height: for2k ? '11.1vw' : '12.5vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('RFOOT'); setBodyLabel(`${Locale.foot_right || 'Kaki Kanan'}`) }} style={{ top: for2k ? '26.7vw' : '29.9vw', left: for2k ? '10.5vw' : '11.9vw', width: for2k ? '3.4vw' : '3.8vw', height: for2k ? '3vw' : '3.3vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
+                <div onMouseEnter={() => { setHoverData(true); setBodypart('LFOOT'); setBodyLabel(`${Locale.foot_left || 'Kaki Kiri'}`) }} style={{ top: for2k ? '26.7vw' : '29.9vw', right: for2k ? '10.5vw' : '11.9vw', width: for2k ? '3.4vw' : '3.8vw', height: for2k ? '3vw' : '3.3vw' }} onMouseLeave={() => { setHoverData(false) }} className='body-info' />
                 <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["HEAD"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_head" src={getAssetUrl('body_head')} />
                 <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["NECK"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_neck" src={getAssetUrl('body_neck')} />
                 <img className="body-container-img" style={{ opacity: 0.9, filter: `sepia(${bodydamagecal["UPPER_BODY"]?.percent}%) saturate(1000%) brightness(60%) hue-rotate(290deg)` }} alt="body_upper" src={getAssetUrl('body_upper')} />

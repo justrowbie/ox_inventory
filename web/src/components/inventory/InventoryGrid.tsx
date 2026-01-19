@@ -83,10 +83,10 @@ const InventoryGrid: React.FC<{ inventory: Inventory, direction: 'left' | 'right
             <div className="inventory-view-button">
               <div className="inventory-view-wrapper">
                   <button className="inventory-view-button-inactive" onClick={() => { setShowRightInventory(false); setShowBodyDamage(true); }}>
-                    <div className="inventory-view-button-inner">Q</div>{Locale.button_body || 'Body Damage'}
+                    <div className="inventory-view-button-inner">Q</div>{Locale.button_body || 'Informasi Tubuh'}
                   </button>
                   <button className="inventory-view-button-active" onClick={() => { setShowRightInventory(true); setShowBodyDamage(false); }}>
-                    <div className="inventory-view-button-inner">E</div>{Locale.button_slot || 'Inventory Slot'}
+                    <div className="inventory-view-button-inner">E</div>{Locale.button_slot || 'Slot Inventaris'}
                   </button>
               </div>
             </div>

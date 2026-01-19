@@ -597,6 +597,12 @@ button:active {
   width: 100%;
   gap: 2vh;
   scale: 0.8;
+  
+  .inventory-slot-label-box {
+    background-color: rgba($darkColor, 0.5);
+    color: $textColor;
+    text-align: center;
+  }
 } 
 
 .hotbar-slot-number {
@@ -604,7 +610,7 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $lightColor;
+  color: $darkColor;
   opacity: 0.4;
   height: 100%;
   width: 100%;
@@ -629,9 +635,10 @@ button:active {
   @extend .inventory-slot;
   width: $gridSize;
   height: $gridSize;
-  background-color: rgba($darkColor, 0.2);
-  border: 1px solid rgba($darkColor, 0.2); 
-  color: $textColor;
+  background-color: rgba($themeColor, 0.6);
+  border: none; 
+  color: $darkColor;
+  font-weight: 500;
   z-index: 1;
 }
 
@@ -640,8 +647,7 @@ button:active {
   width: $gridSize;
   height: $gridSize;
   background-color: rgba($specialColor, 0.4);
-  border: 1px solid rgba($specialColor, 0.4); 
-  border-radius: 2px;
+  border: none;
   color: $textColor;
   z-index: 1;
 }
@@ -651,8 +657,7 @@ button:active {
   width: $gridSize;
   height: $gridSize;
   background-color: rgba($rareColor, 0.4);
-  border: 1px solid rgba($rareColor, 0.4); 
-  border-radius: 2px;
+  border: none;
   color: $textColor;
   z-index: 1;
 }
@@ -676,8 +681,8 @@ button:active {
 
 .item-notification-action-box {
   width: 100%;
-  color: $textColor;
-  background-color: rgba($darkColor, 0.8);
+  color: $darkColor;
+  background-color: rgba($themeColor, 0.8);
   text-transform: uppercase;
   text-align: center;
   font-family: $mainFont;
@@ -692,12 +697,11 @@ button:active {
   @extend .inventory-slot;
   height: $gridSize;
   width: $gridSize;
-  color: rgba($darkColor, 0.9);
   background-size: 7vh;
   background-position-y: 25px;
-  background-color: rgba($darkColor, 0.2);
-  border: 1px solid rgba($darkColor, 0.2); 
-  // animation: zoomInAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  background-color: rgba($themeColor, 0.6);
+  border: 1px solid rgba($themeColor, 0.6); 
+  animation: zoomInAndShake 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .durability-bar {

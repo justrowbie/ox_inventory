@@ -8,9 +8,6 @@ import { onGive } from '../../dnd/onGive';
 import { fetchNui } from '../../utils/fetchNui';
 import { Locale } from '../../store/locale';
 import UsefulControls from './UsefulControls';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGears } from '@fortawesome/free-solid-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const InventoryControl: React.FC = () => {
   const itemAmount = useAppSelector(selectItemAmount);

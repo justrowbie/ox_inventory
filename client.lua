@@ -44,6 +44,7 @@ plyState:set('invHotkeys', false, false)
 plyState:set('canUseWeapons', false, false)
 
 local function canOpenInventory()
+	TriggerEvent('ox_inventory:UpdatePlayerDamage')
     if not PlayerData.loaded then
         return shared.info('cannot open inventory', '(player inventory has not loaded)')
     end
@@ -1338,6 +1339,8 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 
 	PlayerData.loaded = true
 
+	TriggerEvent('ox_inventory:UpdatePlayerDamage')
+
 	if not client.disablesetupnotification then
 		lib.notify({ description = locale('inventory_setup') })
 	end
@@ -1918,7 +1921,7 @@ lib.callback.register('ox_inventory:getVehicleData', function(netid)
 	end
 end)
 
-bodypercent = { 
+standardDamage = { 
 	['HEAD'] = { percent = 0, bullets = 0, severity = false, broken = false, bleeding = false },
 	['NECK'] = { percent = 0, bullets = 0, severity = false, broken = false, bleeding = false },
 	['UPPER_BODY'] = { percent = 0, bullets = 0, severity = false, broken = false, bleeding = false },
@@ -1935,65 +1938,66 @@ bodypercent = {
 }
 
 RegisterNetEvent('ox_inventory:UpdatePlayerDamage', function(BodyParts)
-	local GetPlayerDamage = BodyParts or exports.nt_wounding:GetPlayerDamage()
+	if BodyParts == nil then BodyParts = standardDamage end
+	local GetPlayerDamage = BodyParts or exports.qbx_medical:GetPlayerDamage()
 	for k, v in pairs(GetPlayerDamage) do
-		if v.severity and not bodypercent[k].severity then
-			bodypercent[k].percent = bodypercent[k].percent + 40
-			bodypercent[k].severity = true
+		if v.severity and not standardDamage[k].severity then
+			standardDamage[k].percent = standardDamage[k].percent + 40
+			standardDamage[k].severity = true
 		end
 
-		if not v.severity and bodypercent[k].severity then
-			bodypercent[k].severity = false
-			bodypercent[k].percent = bodypercent[k].percent - 40
+		if not v.severity and standardDamage[k].severity then
+			standardDamage[k].severity = false
+			standardDamage[k].percent = standardDamage[k].percent - 40
 		end
 
-		if v.broken and not bodypercent[k].broken then
-			bodypercent[k].percent = bodypercent[k].percent + 20
-			bodypercent[k].broken = true
+		if v.broken and not standardDamage[k].broken then
+			standardDamage[k].percent = standardDamage[k].percent + 20
+			standardDamage[k].broken = true
 		end
 
-		if not v.broken and bodypercent[k].broken then
-			bodypercent[k].broken = false
-			bodypercent[k].percent = bodypercent[k].percent - 20
+		if not v.broken and standardDamage[k].broken then
+			standardDamage[k].broken = false
+			standardDamage[k].percent = standardDamage[k].percent - 20
 		end
 
-		if v.bleeding and not bodypercent[k].bleeding then
-			bodypercent[k].percent = bodypercent[k].percent + 10
-			bodypercent[k].bleeding = true
+		if v.bleeding and not standardDamage[k].bleeding then
+			standardDamage[k].percent = standardDamage[k].percent + 10
+			standardDamage[k].bleeding = true
 		end
 
-		if not v.bleeding and bodypercent[k].bleeding then
-			bodypercent[k].bleeding = false
-			bodypercent[k].percent = bodypercent[k].percent - 10
+		if not v.bleeding and standardDamage[k].bleeding then
+			standardDamage[k].bleeding = false
+			standardDamage[k].percent = standardDamage[k].percent - 10
 		end
 
-		if v.bullet and v.bullet ~= bodypercent[k].bullets then
-			if v.bullet > bodypercent[k].bullets then
-				local bulletCalc = math.floor(v.bullet * 10)
-				bodypercent[k].percent = bodypercent[k].percent + bulletCalc
-				bodypercent[k].bullets = v.bullet
+		if v.bullets and v.bullets ~= standardDamage[k].bullets then
+			if v.bullets > standardDamage[k].bullets then
+				local bulletCalc = math.floor(v.bullets * 10)
+				standardDamage[k].percent = standardDamage[k].percent + bulletCalc
+				standardDamage[k].bullets = v.bullets
 			else
-				local bulletCalc = math.floor(v.bullet * 10)
-				bodypercent[k].percent = bodypercent[k].percent - bulletCalc
-				bodypercent[k].bullets = v.bullet
+				local bulletCalc = math.floor(v.bullets * 10)
+				standardDamage[k].percent = standardDamage[k].percent - bulletCalc
+				standardDamage[k].bullets = v.bullets
 			end
 		end
 
 		-- Ensure the value does not exceed 100
-        if bodypercent[k].percent > 100 then
-            bodypercent[k].percent = 100
-		elseif bodypercent[k].percent < 0 then
-			bodypercent[k].percent = 0
+		if standardDamage[k].percent > 100 then
+			standardDamage[k].percent = 100
+		elseif standardDamage[k].percent < 0 then
+			standardDamage[k].percent = 0
 		end
 	end
 	SendNUIMessage({
 		action = 'DamageCall',
-		data = bodypercent
+		data = standardDamage
 	})
 end)
 
 RegisterNetEvent('ox_inventory:resetdamageforplayer', function()
-    for k, v in pairs(bodypercent) do
+    for k, v in pairs(standardDamage) do
         v.percent = 0
         v.bullets = 0
         v.severity = false
@@ -2002,6 +2006,6 @@ RegisterNetEvent('ox_inventory:resetdamageforplayer', function()
     end
     SendNUIMessage({
         action = 'DamageCall',
-        data = bodypercent
+        data = standardDamage
     })
 end)
