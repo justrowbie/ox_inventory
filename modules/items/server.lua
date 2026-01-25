@@ -94,7 +94,7 @@ CreateThread(function()
 					if not ItemList[item.name] then
 						fileSize += 1
 
-						local itemStr = itemFormat:format(item.name, item.label, item.weight, item.stack, item.close, item.description and json.encode(item.description) or 'nil')
+						local itemStr = itemFormat:format(item.name, item.label, item.weight, item.stack, item.close, item.description, item.model and json.encode(item.description) or 'nil')
 						-- temporary solution for nil values
 						itemStr = itemStr:gsub('[%s]-[%w]+ = "?nil"?,?', '')
 						file[fileSize] = itemStr
