@@ -40,7 +40,6 @@ files {
     'web/build/assets/*.js',
     'web/build/assets/*.css',
     'web/images/*.png',
-    'web/extend/*.png',
     'modules/**/shared.lua',
     'modules/**/client.lua',
     'modules/bridge/**/client.lua',

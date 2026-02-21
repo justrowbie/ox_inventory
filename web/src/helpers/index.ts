@@ -4,8 +4,6 @@ import { store } from '../store';
 import { Items } from '../store/items';
 import { imagepath } from '../store/imagepath';
 import { fetchNui } from '../utils/fetchNui';
-import { isEnvBrowser } from '../utils/misc';
-import '../index.scss';
 
 export const canPurchaseItem = (item: Slot, inventory: { type: Inventory['type']; groups: Inventory['groups'] }) => {
   if (inventory.type !== 'shop' || !isSlotWithItem(item)) return true;
@@ -16,7 +14,6 @@ export const canPurchaseItem = (item: Slot, inventory: { type: Inventory['type']
 
   const leftInventory = store.getState().inventory.leftInventory;
 
-  // Shop requires groups but player has none
   if (!leftInventory.groups) return false;
 
   const reqGroups = Object.keys(inventory.groups);
@@ -80,6 +77,40 @@ export const canCraftItem = (item: Slot, inventoryType: string) => {
   return remainingItems.length === 0;
 };
 
+export const canCraftItemWithReservations = (
+  item: Slot,
+  inventoryType: string,
+  reserved: Record<string, number>
+): boolean => {
+  if (!isSlotWithItem(item) || inventoryType !== 'crafting') return true;
+  if (!item.ingredients) return true;
+
+  const leftInventory = store.getState().inventory.leftInventory;
+
+  for (const [ingredientName, needed] of Object.entries(item.ingredients)) {
+    if (needed < 1) continue;
+
+    const alreadyReserved = reserved[ingredientName] || 0;
+    const totalNeeded = alreadyReserved + needed;
+
+    let available = 0;
+    for (const slot of leftInventory.items) {
+      if (isSlotWithItem(slot) && slot.name === ingredientName) {
+        available += slot.count;
+      }
+    }
+
+    if (available < totalNeeded) return false;
+  }
+
+  for (const [ingredientName, needed] of Object.entries(item.ingredients)) {
+    if (needed < 1) continue;
+    reserved[ingredientName] = (reserved[ingredientName] || 0) + needed;
+  }
+
+  return true;
+};
+
 export const isSlotWithItem = (slot: Slot, strict: boolean = false): slot is SlotWithItem =>
   (slot.name !== undefined && slot.weight !== undefined) ||
   (strict && slot.name !== undefined && slot.count !== undefined && slot.weight !== undefined);
@@ -90,7 +121,11 @@ export const canStack = (sourceSlot: Slot, targetSlot: Slot) =>
 export const findAvailableSlot = (item: Slot, data: ItemData, items: Slot[]) => {
   if (!data.stack) return items.find((target) => target.name === undefined);
 
-  const stackableSlot = items.find((target) => target.name === item.name && isEqual(target.metadata, item.metadata));
+  const stackableSlot = items.find((target) => {
+    if (target.name !== item.name || !isEqual(target.metadata, item.metadata)) return false;
+    if (data.stackSize && (target.count ?? 0) >= data.stackSize) return false;
+    return true;
+  });
 
   return stackableSlot || items.find((target) => target.name === undefined);
 };
@@ -99,16 +134,22 @@ export const getTargetInventory = (
   state: State,
   sourceType: Inventory['type'],
   targetType?: Inventory['type']
-): { sourceInventory: Inventory; targetInventory: Inventory } => ({
-  sourceInventory: sourceType === InventoryType.PLAYER ? state.leftInventory : state.rightInventory,
-  targetInventory: targetType
-    ? targetType === InventoryType.PLAYER
-      ? state.leftInventory
-      : state.rightInventory
-    : sourceType === InventoryType.PLAYER
-    ? state.rightInventory
-    : state.leftInventory,
-});
+): { sourceInventory: Inventory; targetInventory: Inventory } => {
+  const resolve = (type: Inventory['type']) => {
+    if (type === InventoryType.PLAYER) return state.leftInventory;
+    if (type === InventoryType.BACKPACK) return state.backpackInventory;
+    return state.rightInventory;
+  };
+
+  return {
+    sourceInventory: resolve(sourceType),
+    targetInventory: targetType
+      ? resolve(targetType)
+      : sourceType === InventoryType.PLAYER
+        ? state.rightInventory
+        : state.leftInventory,
+  };
+};
 
 export const itemDurability = (metadata: any, curTime: number) => {
   // sorry dunak
@@ -162,46 +203,3 @@ export const getItemUrl = (item: string | SlotWithItem) => {
 
   return itemData.image;
 };
-
-export function getAssetUrl(assetName: string) {
-  if (isEnvBrowser()) {
-      return `../../../extend/${assetName}.png`;
-  }
-  return `nui://ox_inventory/web/extend/${assetName}.png`;
-}
-
-export function getAssetUrlGif(assetName: string) {
-  if (isEnvBrowser()) {
-      return `../../../extend/${assetName}.gif`;
-  }
-  return `nui://ox_inventory/web/extend/${assetName}.gif`;
-}
-
-function hexToRgb(hex: string): [number, number, number] | null {
-  // Remove # if present
-  hex = hex.trim().replace(/^#/, '');
-
-  // Expand short form to full form (e.g., "abc" -> "aabbcc")
-  if (hex.length === 3) {
-    hex = hex.split('').map(c => c + c).join('');
-  }
-
-  if (hex.length !== 6) return null;
-
-  const bigint = parseInt(hex, 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-
-  return [r, g, b];
-}
-
-export function getCssProp(color: string) {
-  const colorStr = getComputedStyle(document.documentElement)
-  .getPropertyValue(color)
-  .trim();
-
-  const result = hexToRgb(colorStr)
-
-  return result;
-}
