@@ -75,4 +75,7 @@ return {
 
 	--nt_smallresources
 	["map"] = { label = "Map", weight = 100, stack = false, degrade = 0, width = 1, height = 1,  },
+
+	--nt_clothingitem
+	["clothing"] = { label = "Pakaian", weight = 100, stack = false, degrade = 0, width = 1, height = 1,  },
 }
