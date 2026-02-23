@@ -74,5 +74,9 @@ return {
 	["backpack_large"] = { label = "Tas Besar", weight = 1500, stack = false, degrade = 0, close = true, width = 3, height = 3, disable = { move = true, car = true, combat = true, mouse = false, sprint = true },  },
 
 	--nt_smallresources
-	["map"] = { label = "Map", weight = 100, stack = false, degrade = 0, width = 1, height = 1,  },
+	["map"] = { label = "Map", weight = 100, stack = false, degrade = 0, width = 1, height = 1, description = "Peta yang sangat berguna sebagai panduan arah dan lokasi kota.",  },
+	["paper_guide"] = { label = "Lembar Panduan", weight = 100, stack = false, degrade = 0, width = 1, height = 1, description = "Panduan hidup yang dibagikan pemerintah sebelum wabah ini terjadi.",  },
+
+	--nt_clothingitem
+	["clothing"] = { label = "Pakaian", weight = 100, stack = false, degrade = 0, width = 1, height = 1,  },
 }

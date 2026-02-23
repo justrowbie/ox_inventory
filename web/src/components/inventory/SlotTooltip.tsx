@@ -296,7 +296,7 @@ const SlotTooltip: React.ForwardRefRenderFunction<
           )}
           {additionalMetadata.map((data: { metadata: string; value: string }, index: number) => (
             <Fragment key={`metadata-${index}`}>
-              {item.metadata && item.metadata[data.metadata] && (
+              {item.metadata && item.metadata[data.metadata] !== undefined && item.metadata[data.metadata] !== null && (
                 <div className="tooltip-detail-row">
                   <span className="tooltip-detail-label">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
