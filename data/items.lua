@@ -79,4 +79,17 @@ return {
 
 	--nt_clothingitem
 	["clothing"] = { label = "Pakaian", weight = 100, stack = false, degrade = 0, width = 1, height = 1,  },
+
+	--nt_vehiclebuilder
+	["blueprint_vehicle"] = { label = "Blueprint Kendaraan", weight = 100, stack = false, degrade = 0, close = true, width = 1, height = 1, description = "Gambar rancangan teknis detail dari sebuah kendaraan yang digunakan sebagai panduan dalam proses pembuatan.",  },
+	["veh_wheel"] = { label = "Roda", weight = 3000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_engine"] = { label = "Mesin", weight = 10000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_door"] = { label = "Pintu", weight = 4000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_trunk"] = { label = "Pintu Bagasi", weight = 4000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_bonnet"] = { label = "Kap Mesin", weight = 4000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_seat"] = { label = "Kursi", weight = 3000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_exhaust"] = { label = "Knalpot", weight = 2000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_brake"] = { label = "Piring Rem", weight = 1000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_transmission"] = { label = "Transmisi", weight = 2000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
+	["veh_tyre"] = { label = "Ban", weight = 1000, stack = false, degrade = 0, close = true, width = 1, height = 1,  },
 }
